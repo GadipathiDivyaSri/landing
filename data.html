@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="WrindhaOS Third-Party Processors & Services Register. Full transparency on data processors, storage locations, Google Play safety, and DPDP Act compliance.">
+  <title>Third-Party Processors Register | WrindhaOS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/jpeg" href="Images/Image1.jpeg" />
+
+  <style>
+    :root {
+      --primary: #082F49;
+      --secondary: #0EA5E9;
+      --paper: #F8FAFC;
+      --card: #FFFFFF;
+      --accent: #E2E8F0;
+      --ink: #0F172A;
+      --muted: #64748B;
+      --success: #10B981;
+      --mint: #E0F2FE;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--ink);
+      background-color: var(--paper);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    /* ================= NAVBAR ================= */
+    .site-header {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--accent);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.03em;
+      color: var(--primary);
+    }
+
+    .brand-logo-img {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #FFFFFF;
+    }
+
+    .btn-primary:hover {
+      background: #0c4a6e;
+      transform: translateY(-1px);
+    }
+
+    /* ================= MAIN LAYOUT ================= */
+    main {
+      flex: 1;
+      padding: 48px 0 80px;
+    }
+
+    .policy-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* ================= STICKY SIDEBAR ================= */
+    .policy-toc {
+      position: sticky;
+      top: 100px;
+      background: #FFFFFF;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      box-shadow: 0 4px 16px rgba(8, 47, 73, 0.03);
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+    }
+
+    .toc-title {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--secondary);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .toc-list a {
+      font-size: 0.86rem;
+      color: #475569;
+      padding: 6px 10px;
+      border-radius: 6px;
+      display: block;
+      transition: all 0.15s ease;
+      line-height: 1.4;
+    }
+
+    .toc-list a:hover {
+      background: #F0F9FF;
+      color: #0284C7;
+      font-weight: 600;
+    }
+
+    /* ================= DOCUMENT BODY ================= */
+    .doc-article {
+      background: #FFFFFF;
+      border: 1px solid var(--accent);
+      border-radius: 20px;
+      padding: 48px 52px;
+      box-shadow: 0 10px 30px rgba(8, 47, 73, 0.04);
+    }
+
+    .doc-hero {
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 32px;
+      margin-bottom: 36px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--secondary);
+      background: #F0F9FF;
+      padding: 4px 12px;
+      border-radius: 99px;
+      border: 1px solid #BAE6FD;
+      margin-bottom: 14px;
+    }
+
+    .doc-hero h1 {
+      font-size: clamp(2rem, 3.2vw, 2.7rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.2;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+
+    .doc-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 24px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .doc-meta span strong {
+      color: var(--ink);
+    }
+
+    /* SUMMARY BANNER */
+    .summary-banner {
+      background: #F8FAFC;
+      border-left: 4px solid var(--secondary);
+      padding: 20px 24px;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin-bottom: 36px;
+      font-size: 0.95rem;
+      color: #334155;
+    }
+
+    /* PROCESSORS TABLE */
+    .table-container {
+      overflow-x: auto;
+      margin: 20px 0 28px;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-md);
+    }
+
+    .processors-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.88rem;
+    }
+
+    .processors-table th {
+      background: #F8FAFC;
+      color: var(--primary);
+      font-weight: 800;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--accent);
+      white-space: nowrap;
+    }
+
+    .processors-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #F1F5F9;
+      color: #334155;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    .processors-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .processors-table tr:hover {
+      background: #F8FAFC;
+    }
+
+    .service-tag {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 0.92rem;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* SECTIONS */
+    .doc-section {
+      margin-bottom: 40px;
+      scroll-margin-top: 100px;
+    }
+
+    .doc-section h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .doc-section p {
+      font-size: 0.98rem;
+      color: #334155;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .doc-section ul {
+      margin: 10px 0 16px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .doc-section li {
+      font-size: 0.95rem;
+      color: #334155;
+      line-height: 1.6;
+    }
+
+    .doc-section li strong {
+      color: var(--primary);
+    }
+
+    .prohibition-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 18px 0;
+    }
+
+    .prohibition-box {
+      background: #FEF2F2;
+      border: 1px solid #FECACA;
+      border-radius: var(--radius-sm);
+      padding: 16px;
+    }
+
+    .prohibition-box h4 {
+      color: #991B1B;
+      font-weight: 800;
+      font-size: 0.92rem;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .prohibition-box p {
+      color: #7F1D1D;
+      font-size: 0.84rem;
+      margin-bottom: 0 !important;
+      line-height: 1.45;
+    }
+
+    .highlight-card {
+      background: #F0F9FF;
+      border: 1px solid #BAE6FD;
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      margin: 18px 0;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: #FFFFFF;
+      border-top: 1px solid var(--accent);
+      padding: 24px 0;
+      font-size: 0.88rem;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 960px) {
+      .policy-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .policy-toc {
+        position: static;
+        max-height: none;
+      }
+      .prohibition-grid {
+        grid-template-columns: 1fr;
+      }
+      .doc-article {
+        padding: 32px 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-inner {
+        flex-direction: column;
+        height: auto;
+        padding: 14px 0;
+        gap: 12px;
+      }
+      .nav-links {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="WrindhaOS Home">
+        <img src="Images/Image1.jpeg" alt="WrindhaOS Logo" class="brand-logo-img" />
+        <span>WrindhaOS</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="quiz.html">Self Assessment</a>
+        <a href="contact.html">Contact</a>
+        <a href="data.html" class="active">Third-Party Processors</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="container">
+      <div class="policy-layout">
+
+        <!-- STICKY SIDEBAR -->
+        <aside class="policy-toc" aria-label="Table of Contents">
+          <div class="toc-title">
+            <span>📑</span> Register Sections
+          </div>
+          <nav class="toc-list">
+            <a href="#sec-1">1. Register Purpose</a>
+            <a href="#sec-2">2. Processors &amp; Services</a>
+            <a href="#sec-3">3. Categories We Do Not Share With</a>
+            <a href="#sec-4">4. Internal Access Governance</a>
+            <a href="#sec-5">5. Data-Processing Agreements</a>
+            <a href="#sec-6">6. Review Cadence</a>
+          </nav>
+        </aside>
+
+        <!-- DOCUMENT CONTENT -->
+        <article class="doc-article">
+
+          <!-- HERO -->
+          <div class="doc-hero">
+            <div class="eyebrow">Data Processing Transparency</div>
+            <h1>Third-Party Processors &amp; Services Register</h1>
+            <div class="doc-meta">
+              <span>Governing Regulation: <strong>DPDP Act, 2023 &amp; Google Play Data Safety</strong></span>
+              <span>Contact: <strong>wrindhaos@gmail.com</strong></span>
+            </div>
+          </div>
+
+          <div class="summary-banner">
+            This register lists every third party that processes WrindhaOS user data on our behalf, or that we integrate with, and what each one does.
+          </div>
+
+          <!-- 1. PURPOSE -->
+          <section class="doc-section" id="sec-1">
+            <h2>1. Purpose</h2>
+            <p>
+              This register lists every third party that processes WrindhaOS user data on our behalf, or that we integrate with, and what each one does. It supports our <a href="privacy.html" style="color:var(--secondary); font-weight:700; text-decoration:underline;">Privacy Policy</a>, our Google Play Data Safety declaration, and our obligations under India's <strong>Digital Personal Data Protection (DPDP) Act, 2023</strong> to know and document our data-processing chain.
+            </p>
+          </section>
+
+          <!-- 2. THIRD-PARTY PROCESSORS & SERVICES -->
+          <section class="doc-section" id="sec-2">
+            <h2>2. Third-Party Processors &amp; Services</h2>
+            <p>The table below details all active processors, their specific roles, types of data processed, operational purposes, and hosting locations:</p>
+
+            <div class="table-container">
+              <table class="processors-table">
+                <thead>
+                  <tr>
+                    <th>Service</th>
+                    <th>Role</th>
+                    <th>Data Processed</th>
+                    <th>Purpose</th>
+                    <th>Data Location</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span class="service-tag">Supabase</span>
+                    </td>
+                    <td>Backend-as-a-service processor (database, auth, storage)</td>
+                    <td>All account and productivity data: profile, journal (encrypted), habits, goals, subjects, tasks, calendar, expenses, consent records, support tickets</td>
+                    <td>Core application backend, authentication, and data storage/sync</td>
+                    <td>Hosted on Supabase's managed cloud infrastructure</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="service-tag">Google Play Billing</span>
+                    </td>
+                    <td>Payment processor for subscriptions</td>
+                    <td>Purchase token, order ID, subscription plan/status, price, currency. Card/bank details are held by Google, not received by us.</td>
+                    <td>Processing Premium subscription payments and renewals</td>
+                    <td>Google infrastructure (per Google's own policies)</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="service-tag">Google Play Console / Play Services</span>
+                    </td>
+                    <td>App distribution platform</td>
+                    <td>App install/update metadata, device compatibility data, crash/ANR reports (platform-level)</td>
+                    <td>Distributing the app and basic platform diagnostics</td>
+                    <td>Google infrastructure</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="service-tag">Push Notification Service</span>
+                      <small style="color:var(--muted);">(e.g., Firebase Cloud Messaging)</small>
+                    </td>
+                    <td>Notification delivery</td>
+                    <td>Device push token, notification content metadata</td>
+                    <td>Delivering habit, study, and expense reminders you enable</td>
+                    <td>Managed cloud infrastructure</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="service-tag">Crash Diagnostics SDK</span>
+                    </td>
+                    <td>Sub-processor</td>
+                    <td>Device model, OS version, crash stack traces, anonymised usage events</td>
+                    <td>App stability monitoring &amp; product analytics</td>
+                    <td>Managed cloud infrastructure</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- 3. CATEGORIES WE DO NOT SHARE WITH -->
+          <section class="doc-section" id="sec-3">
+            <h2>3. Categories We Do Not Currently Share Data With</h2>
+            <p>
+              We maintain strict operational boundaries to ensure user privacy is not monetized:
+            </p>
+
+            <div class="prohibition-grid">
+              <div class="prohibition-box">
+                <h4>🚫 No Ad Networks</h4>
+                <p>No advertising networks or ad-tech SDKs are integrated into WrindhaOS.</p>
+              </div>
+
+              <div class="prohibition-box">
+                <h4>🚫 No Data Brokers</h4>
+                <p>We never sell, rent, or trade your personal data to brokers or resellers.</p>
+              </div>
+
+              <div class="prohibition-box">
+                <h4>🚫 No Public AI Training</h4>
+                <p>Your private journal entries, habits, and goals are never shared to train third-party AI models.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. INTERNAL ACCESS -->
+          <section class="doc-section" id="sec-4">
+            <h2>4. Internal Access Governance</h2>
+            <p>
+              Internal administrative access (by authorized team members) is role-based, heavily audited, and limited exclusively to:
+            </p>
+            <ul>
+              <li>Account and subscription metadata</li>
+              <li>Aggregate performance and system analytics</li>
+              <li>Support-ticket handling and user inquiries</li>
+              <li>Account-status management (such as handling requested deletions)</li>
+            </ul>
+            <div class="highlight-card">
+              <strong>Zero Content Peeking:</strong> Internal access does <strong>not</strong> extend to reading individual users' private journals, habit records, personal goals, or other owner-only data.
+            </div>
+          </section>
+
+          <!-- 5. DATA-PROCESSING AGREEMENTS -->
+          <section class="doc-section" id="sec-5">
+            <h2>5. Data-Processing Agreements</h2>
+            <p>
+              We rely on Supabase's and Google's respective standard Data Processing Addendums (DPAs) and cloud service terms as part of utilizing their enterprise infrastructures, ensuring adherence to rigorous international data safety benchmarks and encryption in transit and at rest.
+            </p>
+          </section>
+
+          <!-- 6. REVIEW CADENCE -->
+          <section class="doc-section" id="sec-6">
+            <h2>6. Review Cadence</h2>
+            <p>
+              This register is continuously monitored and formally reviewed/updated whenever a new third-party integration is introduced or retired, and at a minimum <strong>every 12 months</strong>.
+            </p>
+          </section>
+
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2026 WrindhaOS. Developed in Chittoor, AP, India. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="quiz.html">Self Assessment</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="data.html">Data Processors</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

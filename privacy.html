@@ -1,0 +1,796 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="WrindhaOS Privacy Policy. Learn how we collect, use, protect, and respect your personal data under the DPDP Act 2023 and Google Play Developer policies.">
+  <title>Privacy Policy | WrindhaOS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/jpeg" href="Images/Image1.jpeg" />
+
+  <style>
+    :root {
+      --primary: #082F49;
+      --secondary: #0EA5E9;
+      --paper: #F8FAFC;
+      --card: #FFFFFF;
+      --accent: #E2E8F0;
+      --ink: #0F172A;
+      --muted: #64748B;
+      --success: #10B981;
+      --mint: #E0F2FE;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--ink);
+      background-color: var(--paper);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    /* ================= NAVBAR ================= */
+    .site-header {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+      box-shadow: 0 2px 14px -2px rgba(8, 47, 73, 0.06);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.03em;
+      color: var(--primary);
+    }
+
+    .brand-logo-img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      object-fit: contain;
+      display: block;
+      box-shadow: 0 2px 6px rgba(8, 47, 73, 0.1);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #FFFFFF;
+    }
+
+    .btn-primary:hover {
+      background: #0c4a6e;
+      transform: translateY(-1px);
+    }
+
+    /* ================= MAIN LAYOUT ================= */
+    main {
+      flex: 1;
+      padding: 48px 0 80px;
+    }
+
+    .privacy-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* ================= STICKY SIDEBAR ================= */
+    .privacy-toc {
+      position: sticky;
+      top: 100px;
+      background: #FFFFFF;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      box-shadow: 0 4px 16px rgba(8, 47, 73, 0.03);
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+    }
+
+    .toc-title {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--secondary);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .toc-list a {
+      font-size: 0.86rem;
+      color: #475569;
+      padding: 6px 10px;
+      border-radius: 6px;
+      display: block;
+      transition: all 0.15s ease;
+      line-height: 1.4;
+    }
+
+    .toc-list a:hover {
+      background: #F0F9FF;
+      color: #0284C7;
+      font-weight: 600;
+    }
+
+    /* ================= DOCUMENT BODY ================= */
+    .doc-article {
+      background: #FFFFFF;
+      border: 1px solid var(--accent);
+      border-radius: 20px;
+      padding: 48px 52px;
+      box-shadow: 0 10px 30px rgba(8, 47, 73, 0.04);
+    }
+
+    .doc-hero {
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 32px;
+      margin-bottom: 36px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--secondary);
+      background: #F0F9FF;
+      padding: 4px 12px;
+      border-radius: 99px;
+      border: 1px solid #BAE6FD;
+      margin-bottom: 14px;
+    }
+
+    .doc-hero h1 {
+      font-size: clamp(2rem, 3.2vw, 2.7rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.2;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+
+    .doc-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 24px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .doc-meta span strong {
+      color: var(--ink);
+    }
+
+    /* CORE PROMISE BANNER */
+    .promise-banner {
+      background: linear-gradient(135deg, #082F49 0%, #0C4A6E 100%);
+      color: #FFFFFF;
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      margin-bottom: 40px;
+      border: 1px solid #0369A1;
+    }
+
+    .promise-banner h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #38BDF8;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .promise-banner p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #E2E8F0;
+    }
+
+    /* SECTIONS */
+    .doc-section {
+      margin-bottom: 44px;
+      scroll-margin-top: 100px;
+    }
+
+    .doc-section h2 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.025em;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .doc-section h3 {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 20px 0 10px;
+    }
+
+    .doc-section p {
+      font-size: 0.98rem;
+      color: #334155;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .doc-section ul {
+      margin: 12px 0 16px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .doc-section li {
+      font-size: 0.96rem;
+      color: #334155;
+      line-height: 1.65;
+    }
+
+    .doc-section li strong {
+      color: var(--primary);
+    }
+
+    /* TABLES */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      margin: 20px 0 24px;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-md);
+      background: #FFFFFF;
+    }
+
+    table.policy-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    table.policy-table th {
+      background: #F1F5F9;
+      color: var(--primary);
+      font-weight: 700;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--accent);
+      white-space: nowrap;
+    }
+
+    table.policy-table td {
+      padding: 14px 18px;
+      border-bottom: 1px solid #F1F5F9;
+      color: #334155;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    table.policy-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    table.policy-table tr:hover td {
+      background: #F8FAFC;
+    }
+
+    .highlight-card {
+      background: #F0F9FF;
+      border: 1px solid #BAE6FD;
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      margin: 18px 0;
+    }
+
+    .highlight-card strong {
+      color: #0369A1;
+    }
+
+    .code-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.88rem;
+      background: #E2E8F0;
+      color: #0F172A;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: #FFFFFF;
+      border-top: 1px solid var(--accent);
+      padding: 24px 0;
+      font-size: 0.88rem;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 960px) {
+      .privacy-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .privacy-toc {
+        position: static;
+        max-height: none;
+      }
+      .doc-article {
+        padding: 32px 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-inner {
+        flex-direction: column;
+        height: auto;
+        padding: 14px 0;
+        gap: 12px;
+      }
+      .nav-links {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="WrindhaOS Home">
+        <img src="Images/Image1.jpeg" alt="WrindhaOS Logo" class="brand-logo-img" />
+        <span>WrindhaOS</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="quiz.html">Self Assessment</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html" class="active">Privacy Policy</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="container">
+      <div class="privacy-layout">
+
+        <!-- STICKY TABLE OF CONTENTS -->
+        <aside class="privacy-toc" aria-label="Table of Contents">
+          <div class="toc-title">
+            <span>📑</span> Policy Sections
+          </div>
+          <nav class="toc-list">
+            <a href="#sec-1">1. Introduction</a>
+            <a href="#sec-2">2. Information We Collect</a>
+            <a href="#sec-3">3. How We Use Information</a>
+            <a href="#sec-4">4. Legal Basis / Consent</a>
+            <a href="#sec-5">5. Who Can See Your Data</a>
+            <a href="#sec-6">6. Data Protection &amp; Security</a>
+            <a href="#sec-7">7. Children and Minors</a>
+            <a href="#sec-8">8. Data Retention</a>
+            <a href="#sec-9">9. Your Rights &amp; SLAs</a>
+            <a href="#sec-10">10. International Transfers</a>
+            <a href="#sec-11">11. Changes to This Policy</a>
+            <a href="#sec-12">12. Contact Us</a>
+          </nav>
+        </aside>
+
+        <!-- DOCUMENT CONTENT -->
+        <article class="doc-article">
+
+          <!-- HERO -->
+          <div class="doc-hero">
+            <div class="eyebrow">Legal &amp; Privacy Transparency</div>
+            <h1>WrindhaOS Privacy Policy</h1>
+            <div class="doc-meta">
+              <span>Applies to: <strong>WrindhaOS Mobile App &amp; wrindhaos.in</strong></span>
+              <span>Framework: <strong>DPDP Act 2023 &amp; IT Act 2000</strong></span>
+              <span>Contact: <strong>wrindhaos@gmail.com</strong></span>
+            </div>
+          </div>
+
+          <!-- CORE PROMISE -->
+          <div class="promise-banner">
+            <h3>🔒 Our Fundamental Commitment</h3>
+            <p>
+              We do not sell your personal data. We do not use your private journal entries, habits, or productivity data to train third-party advertising models, and we never receive or store your payment card, UPI, or banking credentials.
+            </p>
+          </div>
+
+          <!-- 1. INTRODUCTION -->
+          <section class="doc-section" id="sec-1">
+            <h2>1. Introduction</h2>
+            <p>
+              This Privacy Policy explains how <strong>WrindhaOS</strong> ("we," "us," "our") collects, uses, discloses, and protects information when you use the WrindhaOS mobile application and the <code>wrindhaos.in</code> website (together, the "Service").
+            </p>
+            <p>
+              This policy is drafted with reference to India's <strong>Digital Personal Data Protection Act, 2023 ("DPDP Act")</strong>, the <strong>Information Technology Act, 2000</strong> and its associated rules, and <strong>Google Play's Developer Program Policies</strong>.
+            </p>
+          </section>
+
+          <!-- 2. INFORMATION WE COLLECT -->
+          <section class="doc-section" id="sec-2">
+            <h2>2. Information We Collect</h2>
+            
+            <h3>2.1 Information you provide</h3>
+            <ul>
+              <li><strong>Account information:</strong> Full name, email address, and/or phone number (used for OTP-based sign-in), and optionally a profile image.</li>
+              <li><strong>Journal entries:</strong> Title, content, mood rating, and entry date, if you use the Journal feature. Journal content is stored encrypted (see Section 6).</li>
+              <li><strong>Productivity data you create:</strong> Habits, to-dos, Eisenhower/priority-matrix tasks, goals and milestones, subjects/units/topics, study sessions, timetable slots, and calendar events.</li>
+              <li><strong>Personal finance data you choose to enter:</strong> Expense records, categories, and monthly budget amounts. This is self-reported budgeting data — WrindhaOS does not process real payment transactions on your behalf.</li>
+              <li><strong>Support communications:</strong> Content of support tickets you raise and any correspondence with our team.</li>
+              <li><strong>Consent records:</strong> Your acceptance of this Privacy Policy, the Terms &amp; Conditions, the Cookie Policy, and any marketing opt-in, each logged with a policy version, timestamp, IP address, and device/browser user agent.</li>
+            </ul>
+
+            <h3>2.2 Information collected automatically</h3>
+            <ul>
+              <li><strong>Usage and performance data:</strong> Daily counts of tasks/habits completed, study duration, focus scores, and similar in-app analytics used to power your own dashboards.</li>
+              <li><strong>Device and log data:</strong> IP address and user-agent string (captured with consent records and administrative actions), app version, and general diagnostic information.</li>
+              <li><strong>Subscription and billing metadata:</strong> Plan type, purchase token, order ID, subscription status, and renewal dates, received from Google Play Billing. We do not receive or store your card, UPI, or bank details — these are handled entirely by Google Play.</li>
+            </ul>
+          </section>
+
+          <!-- 3. HOW WE USE YOUR INFORMATION -->
+          <section class="doc-section" id="sec-3">
+            <h2>3. How We Use Your Information</h2>
+            <ul>
+              <li>To create and operate your account and provide the Service's features.</li>
+              <li>To sync your data across your devices via our backend.</li>
+              <li>To send in-app and push notifications you have enabled (e.g., habit reminders, study reminders, expense alerts), based on your notification settings.</li>
+              <li>To provide customer support and respond to grievances.</li>
+              <li>To detect misuse, enforce our Acceptable Use Policy, and maintain platform safety (e.g., account suspension for policy violations).</li>
+              <li>To generate de-identified, aggregate analytics (e.g., total users, active subscriptions) for product and business planning. Aggregate analytics do not expose your individual private content.</li>
+              <li>To comply with legal obligations and respond to lawful requests from authorities.</li>
+            </ul>
+            <div class="highlight-card">
+              <strong>Notice on Data Monitization &amp; Ads:</strong> We do not sell your personal data. We do not use your journal content, habits, or other private productivity data to train third-party advertising models or to serve targeted third-party ads.
+            </div>
+          </section>
+
+          <!-- 4. LEGAL BASIS / CONSENT -->
+          <section class="doc-section" id="sec-4">
+            <h2>4. Legal Basis / Consent</h2>
+            <p>
+              We process your personal data on the basis of your consent, provided at sign-up and recorded against the specific version of this Policy, the Terms &amp; Conditions, and the Cookie Policy you accepted. You may withdraw consent at any time by deleting your account, subject to Section 8 (Data Retention).
+            </p>
+            <p>
+              The table below maps each category of data we process to the lawful basis on which we process it:
+            </p>
+
+            <div class="table-container">
+              <table class="policy-table">
+                <thead>
+                  <tr>
+                    <th>Data Category</th>
+                    <th>Lawful Basis</th>
+                    <th>Notes &amp; Retention</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Account data</strong> (name, email, phone, profile image)</td>
+                    <td>Consent, given at sign-up</td>
+                    <td>Withdrawable by deleting your account</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Journal entries &amp; mood ratings</strong></td>
+                    <td>Consent, given when using Journal</td>
+                    <td>Encrypted; you may delete individual entries without deleting your account</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Productivity data</strong> (habits, tasks, goals, subjects, calendar, study sessions)</td>
+                    <td>Consent / Performance of contract</td>
+                    <td>Deleted with your account or when you delete the individual item</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Expense &amp; budget records</strong></td>
+                    <td>Consent, given when using expense feature</td>
+                    <td>Self-reported; optional feature</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Subscription &amp; billing metadata</strong></td>
+                    <td>Performance of contract / Legal obligation</td>
+                    <td>Received from Google Play Billing, not collected directly by us</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Consent records</strong> (policy acceptance, IP, user agent, timestamp)</td>
+                    <td>Legal obligation / Legitimate interest</td>
+                    <td>Retained per our Data Retention &amp; Deletion Policy</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Usage/analytics data</strong> (aggregate)</td>
+                    <td>Legitimate interest</td>
+                    <td>De-identified for reporting purposes</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Support ticket content</strong></td>
+                    <td>Consent / Legitimate interest</td>
+                    <td>Retained per our Data Retention &amp; Deletion Policy</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- 5. WHO CAN SEE YOUR DATA -->
+          <section class="doc-section" id="sec-5">
+            <h2>5. Who Can See Your Data</h2>
+            <p>
+              WrindhaOS's database enforces <strong>owner-only Row-Level Security (RLS)</strong> on your personal productivity tables — including your journal, habits, goals, subjects, to-dos, calendar, and study sessions. This means these records are readable only by your authenticated account; our internal administrative roles do not have a standing policy granting them read access to this content.
+            </p>
+            <p>
+              Our administrative ("backoffice") accounts are limited by role to a defined set of permissions, such as reading account and subscription metadata, reading aggregate analytics, managing support tickets, and managing account status (e.g., suspending an account for a policy violation). These roles do not include a general right to read your journal entries or other private content.
+            </p>
+            <p>We may share limited data with:</p>
+            <ul>
+              <li><strong>Google Play:</strong> Billing, distribution, and app services — see our Data Processing / Third-Party Services Register.</li>
+              <li><strong>Backend infrastructure provider (Supabase):</strong> Hosts our database and authentication on our behalf under a data-processing arrangement.</li>
+              <li><strong>Law enforcement or regulators:</strong> Where required by law, court order, or to protect the rights, safety, or property of our users or the team.</li>
+              <li><strong>Successor entity:</strong> In the event of a merger, acquisition, or asset sale, subject to equivalent privacy protections.</li>
+            </ul>
+          </section>
+
+          <!-- 6. DATA PROTECTION & SECURITY -->
+          <section class="doc-section" id="sec-6">
+            <h2>6. How We Protect Your Data</h2>
+            <ul>
+              <li><strong>AES-256 Journal Encryption:</strong> Journal content is encrypted using AES-256 symmetric encryption before storage, with decryption available only through authenticated, server-side functions.</li>
+              <li><strong>Row-Level Security:</strong> All personal productivity tables are protected by owner-only Row-Level Security policies at the database layer, in addition to standard authentication tokens.</li>
+              <li><strong>Encryption in Transit:</strong> All data transmitted between your device and our servers is encrypted via TLS/HTTPS.</li>
+              <li><strong>Internal Audit Trail:</strong> Administrative actions (e.g., account status changes) are logged in an internal audit trail.</li>
+            </ul>
+            <p>
+              See our <a href="data.html" style="color:var(--secondary); font-weight:700; text-decoration:underline;">Security &amp; Data Protection Statement</a> for further technical detail.
+            </p>
+          </section>
+
+          <!-- 7. CHILDREN AND MINORS -->
+          <section class="doc-section" id="sec-7">
+            <h2>7. Children and Minors</h2>
+            <p>
+              WrindhaOS is intended for competitive-exam aspirants, some of whom may be under 18 years of age. Under the <strong>DPDP Act, 2023</strong>, processing the personal data of a child (under 18) requires verifiable parental or guardian consent.
+            </p>
+            <p>
+              If you are under 18, you may use WrindhaOS only with the involvement and consent of a parent or legal guardian, who accepts this Privacy Policy and our Terms &amp; Conditions on your behalf. We do not knowingly enable tracking or behavioural advertising directed at children, and we do not knowingly process children's data in a manner likely to cause harm.
+            </p>
+          </section>
+
+          <!-- 8. DATA RETENTION -->
+          <section class="doc-section" id="sec-8">
+            <h2>8. Data Retention</h2>
+            <p>
+              We retain your personal data for as long as your account is active. When you request account deletion, we process your request under the lifecycle described in our Account Deletion Policy and Data Retention &amp; Deletion Policy, including any limited retention required for legal, tax, fraud-prevention, or dispute-resolution purposes.
+            </p>
+          </section>
+
+          <!-- 9. YOUR RIGHTS -->
+          <section class="doc-section" id="sec-9">
+            <h2>9. Your Rights</h2>
+            <p>Subject to applicable law under the DPDP Act, you have the right to:</p>
+            <ul>
+              <li>Access and export a copy of your personal data.</li>
+              <li>Correct inaccurate account information.</li>
+              <li>Withdraw consent and request deletion of your account and data.</li>
+              <li>Manage notification and communication preferences in-app.</li>
+              <li>Lodge a grievance with our Grievance Officer, and thereafter, if unresolved, with the applicable data protection authority.</li>
+            </ul>
+            <p>
+              To exercise any of these rights, please write to us at <a href="mailto:wrindhaos@gmail.com" class="code-tag">wrindhaos@gmail.com</a>.
+            </p>
+
+            <h3>9.1 How Quickly We Respond</h3>
+            <div class="table-container">
+              <table class="policy-table">
+                <thead>
+                  <tr>
+                    <th>Request Type</th>
+                    <th>Acknowledgement</th>
+                    <th>Resolution Target</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Access / export your data</strong></td>
+                    <td>Within 48 hours</td>
+                    <td>Within 30 days of a verified request</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Correct inaccurate account information</strong></td>
+                    <td>Within 48 hours</td>
+                    <td>Within 7 days</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Withdraw consent / delete account</strong></td>
+                    <td>Within 48 hours</td>
+                    <td>Within 30 days (see Account Deletion Policy)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>General privacy grievance</strong></td>
+                    <td>Within 24–48 hours</td>
+                    <td>Within 15 days (see Grievance Redressal Policy)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p style="font-size:0.9rem; color:var(--muted);">
+              *Complex requests (for example, those requiring us to distinguish your data from another user's, or involving a legal hold) may take longer; if so, we will communicate the reason and expected timeline within the initial acknowledgement period.
+            </p>
+          </section>
+
+          <!-- 10. INTERNATIONAL DATA TRANSFERS -->
+          <section class="doc-section" id="sec-10">
+            <h2>10. International Data Transfers</h2>
+            <p>
+              Our backend infrastructure may process and store data on servers located outside India, depending on our infrastructure provider's hosting regions. Where this occurs, we require our providers to maintain safeguards consistent with applicable law.
+            </p>
+          </section>
+
+          <!-- 11. CHANGES TO THIS POLICY -->
+          <section class="doc-section" id="sec-11">
+            <h2>11. Changes to This Policy</h2>
+            <p>
+              We may update this Privacy Policy from time to time. Material changes will be notified in-app and/or via the email associated with your account, and the updated version and its effective date will be published at <code>wrindhaos.in/privacy-policy</code>.
+            </p>
+          </section>
+
+          <!-- 12. CONTACT US -->
+          <section class="doc-section" id="sec-12">
+            <h2>12. Contact Us</h2>
+            <p>
+              If you have any questions, concerns, or requests regarding this Privacy Policy or our data handling practices, please reach out to:
+            </p>
+            <div class="highlight-card">
+              <div style="font-weight:800; font-size:1.1rem; color:var(--primary); margin-bottom:6px;">
+                WrindhaOS Privacy &amp; Data Protection
+              </div>
+              <div>Email: <a href="mailto:wrindhaos@gmail.com" style="color:var(--secondary); font-weight:700; text-decoration:underline;">wrindhaos@gmail.com</a></div>
+              <div style="color:var(--muted); font-size:0.9rem; margin-top:4px;">Operated by the WrindhaOS Team • Chittoor, Andhra Pradesh, India</div>
+            </div>
+          </section>
+
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2026 WrindhaOS. Developed in Chittoor, AP, India. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="quiz.html">Self Assessment</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="data.html">Data Protection</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

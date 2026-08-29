@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="WrindhaOS Cookie Policy. Learn about our use of essential website cookies, local storage mechanisms in the mobile app, preferences, and privacy controls.">
+  <title>Cookie Policy | WrindhaOS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/jpeg" href="Images/Image1.jpeg" />
+
+  <style>
+    :root {
+      --primary: #082F49;
+      --secondary: #0EA5E9;
+      --paper: #F8FAFC;
+      --card: #FFFFFF;
+      --accent: #E2E8F0;
+      --ink: #0F172A;
+      --muted: #64748B;
+      --success: #10B981;
+      --mint: #E0F2FE;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--ink);
+      background-color: var(--paper);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    /* ================= NAVBAR ================= */
+    .site-header {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--accent);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.03em;
+      color: var(--primary);
+    }
+
+    .brand-logo-img {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #FFFFFF;
+    }
+
+    .btn-primary:hover {
+      background: #0c4a6e;
+      transform: translateY(-1px);
+    }
+
+    /* ================= MAIN LAYOUT ================= */
+    main {
+      flex: 1;
+      padding: 48px 0 80px;
+    }
+
+    .policy-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* ================= STICKY SIDEBAR ================= */
+    .policy-toc {
+      position: sticky;
+      top: 100px;
+      background: #FFFFFF;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      box-shadow: 0 4px 16px rgba(8, 47, 73, 0.03);
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+    }
+
+    .toc-title {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--secondary);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .toc-list a {
+      font-size: 0.86rem;
+      color: #475569;
+      padding: 6px 10px;
+      border-radius: 6px;
+      display: block;
+      transition: all 0.15s ease;
+      line-height: 1.4;
+    }
+
+    .toc-list a:hover {
+      background: #F0F9FF;
+      color: #0284C7;
+      font-weight: 600;
+    }
+
+    /* ================= DOCUMENT BODY ================= */
+    .doc-article {
+      background: #FFFFFF;
+      border: 1px solid var(--accent);
+      border-radius: 20px;
+      padding: 48px 52px;
+      box-shadow: 0 10px 30px rgba(8, 47, 73, 0.04);
+    }
+
+    .doc-hero {
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 32px;
+      margin-bottom: 36px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--secondary);
+      background: #F0F9FF;
+      padding: 4px 12px;
+      border-radius: 99px;
+      border: 1px solid #BAE6FD;
+      margin-bottom: 14px;
+    }
+
+    .doc-hero h1 {
+      font-size: clamp(2rem, 3.2vw, 2.7rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.2;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+
+    .doc-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 24px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .doc-meta span strong {
+      color: var(--ink);
+    }
+
+    /* SUMMARY BANNER */
+    .summary-banner {
+      background: #F8FAFC;
+      border-left: 4px solid var(--secondary);
+      padding: 20px 24px;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin-bottom: 36px;
+      font-size: 0.95rem;
+      color: #334155;
+    }
+
+    /* COOKIE CARDS */
+    .cookie-types-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 20px 0 24px;
+    }
+
+    .cookie-type-card {
+      background: #F8FAFC;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-md);
+      padding: 20px;
+    }
+
+    .cookie-type-card h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .cookie-type-card p {
+      font-size: 0.88rem;
+      color: #475569;
+      line-height: 1.5;
+      margin-bottom: 0 !important;
+    }
+
+    /* SECTIONS */
+    .doc-section {
+      margin-bottom: 40px;
+      scroll-margin-top: 100px;
+    }
+
+    .doc-section h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .doc-section p {
+      font-size: 0.98rem;
+      color: #334155;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .doc-section ul {
+      margin: 10px 0 16px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .doc-section li {
+      font-size: 0.95rem;
+      color: #334155;
+      line-height: 1.6;
+    }
+
+    .doc-section li strong {
+      color: var(--primary);
+    }
+
+    .highlight-card {
+      background: #F0F9FF;
+      border: 1px solid #BAE6FD;
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      margin: 18px 0;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: #FFFFFF;
+      border-top: 1px solid var(--accent);
+      padding: 24px 0;
+      font-size: 0.88rem;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 960px) {
+      .policy-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .policy-toc {
+        position: static;
+        max-height: none;
+      }
+      .cookie-types-grid {
+        grid-template-columns: 1fr;
+      }
+      .doc-article {
+        padding: 32px 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-inner {
+        flex-direction: column;
+        height: auto;
+        padding: 14px 0;
+        gap: 12px;
+      }
+      .nav-links {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="WrindhaOS Home">
+        <img src="Images/Image1.jpeg" alt="WrindhaOS Logo" class="brand-logo-img" />
+        <span>WrindhaOS</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="quiz.html">Self Assessment</a>
+        <a href="contact.html">Contact</a>
+        <a href="cookie.html" class="active">Cookie Policy</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="container">
+      <div class="policy-layout">
+
+        <!-- STICKY SIDEBAR -->
+        <aside class="policy-toc" aria-label="Table of Contents">
+          <div class="toc-title">
+            <span>📑</span> Policy Sections
+          </div>
+          <nav class="toc-list">
+            <a href="#sec-1">1. Scope</a>
+            <a href="#sec-2">2. What Cookies We Use</a>
+            <a href="#sec-3">3. In-App Local Storage</a>
+            <a href="#sec-4">4. Managing Cookies</a>
+            <a href="#sec-5">5. Do Not Track</a>
+            <a href="#sec-6">6. Changes to Policy</a>
+          </nav>
+        </aside>
+
+        <!-- DOCUMENT CONTENT -->
+        <article class="doc-article">
+
+          <!-- HERO -->
+          <div class="doc-hero">
+            <div class="eyebrow">Tracking &amp; Storage Transparency</div>
+            <h1>Cookie Policy</h1>
+            <div class="doc-meta">
+              <span>Applies to: <strong>wrindhaos.in &amp; WrindhaOS App</strong></span>
+              <span>Updated: <strong>Current Version</strong></span>
+              <span>Contact: <strong>wrindhaos@gmail.com</strong></span>
+            </div>
+          </div>
+
+          <div class="summary-banner">
+            This Cookie Policy explains how <strong>wrindhaos.in</strong> and, where applicable, the WrindhaOS mobile application use cookies and similar technologies (such as local storage and mobile identifiers).
+          </div>
+
+          <!-- 1. SCOPE -->
+          <section class="doc-section" id="sec-1">
+            <h2>1. Scope</h2>
+            <p>
+              This Cookie Policy explains how <code>wrindhaos.in</code> (the "Website") and, where applicable, the WrindhaOS mobile app use cookies and similar technologies (such as local storage and mobile identifiers).
+            </p>
+            <p>
+              The WrindhaOS Android app itself does not use browser cookies, but it may use equivalent local-storage mechanisms for session and authentication tokens; references to "cookies" below apply to the Website unless stated otherwise.
+            </p>
+          </section>
+
+          <!-- 2. WHAT COOKIES WE USE -->
+          <section class="doc-section" id="sec-2">
+            <h2>2. What Cookies We Use</h2>
+            <p>
+              We categorize cookies on the Website into three specific groups:
+            </p>
+
+            <div class="cookie-types-grid">
+              <div class="cookie-type-card">
+                <h3>Strictly Necessary</h3>
+                <p>
+                  Required for the Website to function, such as session integrity, security authentication, and remembering your cookie consent choice. These cannot be disabled.
+                </p>
+              </div>
+
+              <div class="cookie-type-card">
+                <h3>Preference Cookies</h3>
+                <p>
+                  Remember custom settings such as language selection, layout preferences, or display parameters to ensure a consistent browsing experience.
+                </p>
+              </div>
+
+              <div class="cookie-type-card">
+                <h3>Analytics (Optional)</h3>
+                <p>
+                  Help us understand aggregate Website usage, such as which pages are visited, to improve performance. These are only set with your consent where required by law.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- 3. IN-APP LOCAL STORAGE -->
+          <section class="doc-section" id="sec-3">
+            <h2>3. In-App Local Storage</h2>
+            <p>
+              The mobile app stores your authentication session and certain user preferences locally on your device so you remain signed in and your offline settings persist reliably.
+            </p>
+            <div class="highlight-card">
+              <strong>Non-Advertising Guarantee:</strong> This local storage mechanism is strictly functional and necessary for the app to operate. It is <strong>not</strong> a third-party tracking or advertising cookie.
+            </div>
+          </section>
+
+          <!-- 4. MANAGING COOKIES -->
+          <section class="doc-section" id="sec-4">
+            <h2>4. Managing Cookies</h2>
+            <p>
+              You can control or delete cookies through your browser settings at any time. Please note that blocking strictly necessary cookies may prevent parts of the Website from functioning correctly.
+            </p>
+            <p>
+              Where we deploy a cookie consent banner, you can update your consent preferences at any time via the cookie settings links available across the site.
+            </p>
+          </section>
+
+          <!-- 5. DO NOT TRACK -->
+          <section class="doc-section" id="sec-5">
+            <h2>5. Do Not Track</h2>
+            <p>
+              Our Website does not currently respond to browser "Do Not Track" (DNT) signals, as no universal industry standard for interpreting and handling them has been established or adopted.
+            </p>
+          </section>
+
+          <!-- 6. CHANGES -->
+          <section class="doc-section" id="sec-6">
+            <h2>6. Changes to This Policy</h2>
+            <p>
+              We may update this Cookie Policy from time to time to reflect evolving technical implementations or legal requirements. The current, authoritative version is always accessible at:
+            </p>
+            <div class="highlight-card">
+              <code>wrindhaos.in/cookie-policy</code> (or <a href="cookie.html" style="color:var(--secondary); font-weight:700; text-decoration:underline;">wrindhaos.in/cookie.html</a>)
+            </div>
+          </section>
+
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2026 WrindhaOS. Developed in Chittoor, AP, India. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="quiz.html">Self Assessment</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="cookie.html">Cookie Policy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="WrindhaOS official disclaimer covering exam outcomes, non-coaching tool status, financial record-keeping, health/journal reflections, and service availability.">
+  <title>Disclaimer | WrindhaOS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/jpeg" href="Images/Image1.jpeg" />
+
+  <style>
+    :root {
+      --primary: #082F49;
+      --secondary: #0EA5E9;
+      --paper: #F8FAFC;
+      --card: #FFFFFF;
+      --accent: #E2E8F0;
+      --ink: #0F172A;
+      --muted: #64748B;
+      --success: #10B981;
+      --mint: #E0F2FE;
+      --warning-bg: #FFFBEB;
+      --warning-border: #FDE68A;
+      --warning-text: #92400E;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--ink);
+      background-color: var(--paper);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    /* ================= NAVBAR ================= */
+    .site-header {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--accent);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.03em;
+      color: var(--primary);
+    }
+
+    .brand-logo-img {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #FFFFFF;
+    }
+
+    .btn-primary:hover {
+      background: #0c4a6e;
+      transform: translateY(-1px);
+    }
+
+    /* ================= MAIN LAYOUT ================= */
+    main {
+      flex: 1;
+      padding: 48px 0 80px;
+    }
+
+    .policy-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* ================= STICKY SIDEBAR ================= */
+    .policy-toc {
+      position: sticky;
+      top: 100px;
+      background: #FFFFFF;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      box-shadow: 0 4px 16px rgba(8, 47, 73, 0.03);
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+    }
+
+    .toc-title {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--secondary);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .toc-list a {
+      font-size: 0.86rem;
+      color: #475569;
+      padding: 6px 10px;
+      border-radius: 6px;
+      display: block;
+      transition: all 0.15s ease;
+      line-height: 1.4;
+    }
+
+    .toc-list a:hover {
+      background: #F0F9FF;
+      color: #0284C7;
+      font-weight: 600;
+    }
+
+    /* ================= DOCUMENT BODY ================= */
+    .doc-article {
+      background: #FFFFFF;
+      border: 1px solid var(--accent);
+      border-radius: 20px;
+      padding: 48px 52px;
+      box-shadow: 0 10px 30px rgba(8, 47, 73, 0.04);
+    }
+
+    .doc-hero {
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 32px;
+      margin-bottom: 36px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--secondary);
+      background: #F0F9FF;
+      padding: 4px 12px;
+      border-radius: 99px;
+      border: 1px solid #BAE6FD;
+      margin-bottom: 14px;
+    }
+
+    .doc-hero h1 {
+      font-size: clamp(2rem, 3.2vw, 2.7rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.2;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+
+    .doc-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 24px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .doc-meta span strong {
+      color: var(--ink);
+    }
+
+    /* SECTIONS */
+    .doc-section {
+      margin-bottom: 40px;
+      scroll-margin-top: 100px;
+    }
+
+    .doc-section h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .doc-section p {
+      font-size: 0.98rem;
+      color: #334155;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .callout-box {
+      background: #F8FAFC;
+      border: 1px solid var(--accent);
+      border-left: 4px solid var(--secondary);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-size: 0.95rem;
+      color: #334155;
+    }
+
+    .warning-box {
+      background: var(--warning-bg);
+      border: 1px solid var(--warning-border);
+      border-left: 4px solid var(--warning-text);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-size: 0.95rem;
+      color: var(--warning-text);
+    }
+
+    .highlight-card {
+      background: #F0F9FF;
+      border: 1px solid #BAE6FD;
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      margin: 18px 0;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: #FFFFFF;
+      border-top: 1px solid var(--accent);
+      padding: 24px 0;
+      font-size: 0.88rem;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 960px) {
+      .policy-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .policy-toc {
+        position: static;
+        max-height: none;
+      }
+      .doc-article {
+        padding: 32px 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-inner {
+        flex-direction: column;
+        height: auto;
+        padding: 14px 0;
+        gap: 12px;
+      }
+      .nav-links {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="WrindhaOS Home">
+        <img src="Images/Image1.jpeg" alt="WrindhaOS Logo" class="brand-logo-img" />
+        <span>WrindhaOS</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="quiz.html">Self Assessment</a>
+        <a href="contact.html">Contact</a>
+        <a href="disclaimer.html" class="active">Disclaimer</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="container">
+      <div class="policy-layout">
+
+        <!-- STICKY SIDEBAR -->
+        <aside class="policy-toc" aria-label="Table of Contents">
+          <div class="toc-title">
+            <span>📑</span> Disclaimer Index
+          </div>
+          <nav class="toc-list">
+            <a href="#sec-1">1. General</a>
+            <a href="#sec-2">2. Not Exam-Prep or Coaching</a>
+            <a href="#sec-3">3. Not Financial Advice</a>
+            <a href="#sec-4">4. Not Medical/Mental Health Advice</a>
+            <a href="#sec-5">5. "As Is" Basis</a>
+            <a href="#sec-6">6. No Uninterrupted Guarantee</a>
+            <a href="#sec-7">7. Third-Party Services</a>
+            <a href="#sec-8">8. Limitation of Liability</a>
+            <a href="#sec-9">9. Contact</a>
+          </nav>
+        </aside>
+
+        <!-- DOCUMENT CONTENT -->
+        <article class="doc-article">
+
+          <!-- HERO -->
+          <div class="doc-hero">
+            <div class="eyebrow">Product &amp; Service Disclosures</div>
+            <h1>WrindhaOS Disclaimer</h1>
+            <div class="doc-meta">
+              <span>Applies to: <strong>WrindhaOS App &amp; wrindhaos.in</strong></span>
+              <span>Contact: <strong>wrindhaos@gmail.com</strong></span>
+            </div>
+          </div>
+
+          <!-- 1. GENERAL -->
+          <section class="doc-section" id="sec-1">
+            <h2>1. General</h2>
+            <p>
+              WrindhaOS is a personal productivity and study-organisation tool. The information in this Disclaimer applies in addition to our <a href="terms.html" style="color:var(--secondary); font-weight:700; text-decoration:underline;">Terms &amp; Conditions</a>.
+            </p>
+          </section>
+
+          <!-- 2. NOT EXAM-PREPARATION CONTENT OR A COACHING SERVICE -->
+          <section class="doc-section" id="sec-2">
+            <h2>2. Not Exam-Preparation Content or a Coaching Service</h2>
+            <p>
+              WrindhaOS does not provide NEET, JEE, UPSC, or any other exam syllabus content, question banks, mock tests, or coaching. It is an organisational tool to help you plan, track, and reflect on your own study process.
+            </p>
+            <div class="callout-box">
+              We make no representation or warranty about your examination outcome, rank, or result from using the app.
+            </div>
+          </section>
+
+          <!-- 3. NOT FINANCIAL ADVICE -->
+          <section class="doc-section" id="sec-3">
+            <h2>3. Not Financial Advice</h2>
+            <p>
+              The expense-tracking and budgeting features are simple, self-reported record-keeping tools for your personal convenience. They do not constitute financial, investment, tax, or accounting advice, and we are not a financial institution or payment processor.
+            </p>
+          </section>
+
+          <!-- 4. NOT MEDICAL OR MENTAL HEALTH ADVICE -->
+          <section class="doc-section" id="sec-4">
+            <h2>4. Not Medical or Mental Health Advice</h2>
+            <p>
+              The Journal and mood-tracking features are for personal reflection only. They are not a diagnostic tool, therapy, or a substitute for professional mental health support.
+            </p>
+            <div class="warning-box">
+              <strong>Support Notice:</strong> If you are in distress or crisis, please seek help from a qualified professional or a local emergency/helpline service.
+            </div>
+          </section>
+
+          <!-- 5. "AS IS" BASIS -->
+          <section class="doc-section" id="sec-5">
+            <h2>5. "As Is" Basis</h2>
+            <p>
+              The Service is provided on an "as is" and "as available" basis, without warranties of any kind, whether express or implied, including implied warranties of merchantability, fitness for a particular purpose, and non-infringement, to the maximum extent permitted by law.
+            </p>
+          </section>
+
+          <!-- 6. NO GUARANTEE OF UNINTERRUPTED SERVICE -->
+          <section class="doc-section" id="sec-6">
+            <h2>6. No Guarantee of Uninterrupted Service</h2>
+            <p>
+              We do not guarantee that the Service will be uninterrupted, error-free, or available at all times. Scheduled maintenance, technical issues, or circumstances beyond our control may affect availability.
+            </p>
+          </section>
+
+          <!-- 7. THIRD-PARTY SERVICES -->
+          <section class="doc-section" id="sec-7">
+            <h2>7. Third-Party Services</h2>
+            <p>
+              The Service relies on third-party infrastructure, including Google Play (billing and distribution) and our backend hosting provider. We are not responsible for outages or issues originating from these third parties, though we will make reasonable efforts to assist you.
+            </p>
+          </section>
+
+          <!-- 8. LIMITATION OF LIABILITY -->
+          <section class="doc-section" id="sec-8">
+            <h2>8. Limitation of Liability</h2>
+            <p>
+              See Section 10 of our <a href="terms.html#sec-10" style="color:var(--secondary); font-weight:700; text-decoration:underline;">Terms &amp; Conditions</a> for the applicable limitation of liability.
+            </p>
+          </section>
+
+          <!-- 9. CONTACT -->
+          <section class="doc-section" id="sec-9">
+            <h2>9. Contact</h2>
+            <p>
+              Questions about this Disclaimer:
+            </p>
+            <div class="highlight-card">
+              <div>Email: <a href="mailto:wrindhaos@gmail.com" style="color:var(--secondary); font-weight:700; text-decoration:underline;">wrindhaos@gmail.com</a></div>
+              <div style="color:var(--muted); font-size:0.88rem; margin-top:4px;">WrindhaOS Team • Chittoor, Andhra Pradesh, India</div>
+            </div>
+          </section>
+
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2026 WrindhaOS. Developed in Chittoor, AP, India. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="quiz.html">Self Assessment</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

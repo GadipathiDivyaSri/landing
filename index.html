@@ -1,0 +1,2760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>WrindhaOS — Where System Meets Your Passion</title>
+  <meta name="description" content="WrindhaOS brings your goals, tasks, habits, focus, planning, career, and everyday life into one simple system — so you can focus on what actually matters." />
+  <meta property="og:title" content="WrindhaOS — Where System Meets Your Passion" />
+  <meta property="og:description" content="WrindhaOS brings your goals, tasks, habits, focus, planning, career, and everyday life into one simple system — so you can focus on what actually matters." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://wrindhaos.com/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/jpeg" href="Images/Image1.jpeg" />
+
+  <style>
+    /* ==========================================================================
+       COLOR SYSTEM & DESIGN TOKENS
+       ========================================================================== */
+    :root {
+      --primary: #082F49;      /* Deep Ocean Navy */
+      --secondary: #0EA5E9;    /* Ocean Blue Accent */
+      --bg: #F0F9FF;           /* Soft Sky background */
+      --card: #FFFFFF;         /* Pure White */
+      --accent: #CBD5E1;       /* Silver border & accents */
+      --text-main: #0F172A;    /* Midnight */
+      --text-muted: #64748B;   /* Slate */
+      --success: #10B981;      /* Emerald */
+      --navy-card: #0C3A5A;
+      --navy-border: #164E63;
+      --shadow-sm: 0 2px 8px rgba(8, 47, 73, 0.04);
+      --shadow-md: 0 12px 30px rgba(8, 47, 73, 0.08);
+      --shadow-lg: 0 24px 50px rgba(8, 47, 73, 0.12);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+    }
+
+    /* ==========================================================================
+       BASE & RESET
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .container {
+      width: min(100% - 40px, 1220px);
+      margin-inline: auto;
+    }
+
+    /* ==========================================================================
+       TYPOGRAPHY HIERARCHY
+       ========================================================================== */
+    h1, h2, h3, h4 {
+      color: var(--primary);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: rgba(14, 165, 233, 0.12);
+      color: var(--primary);
+      border: 1px solid rgba(14, 165, 233, 0.25);
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow-dark {
+      background: rgba(14, 165, 233, 0.18);
+      color: #BAE6FD;
+      border-color: rgba(14, 165, 233, 0.35);
+    }
+
+    /* ==========================================================================
+       BUTTONS
+       ========================================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(8, 47, 73, 0.2);
+    }
+
+    .btn-primary:hover {
+      background-color: #0c4a6e;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(8, 47, 73, 0.3);
+      color: #FFFFFF;
+    }
+
+    .btn-accent {
+      background-color: var(--secondary);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(14, 165, 233, 0.25);
+    }
+
+    .btn-accent:hover {
+      background-color: #0284c7;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(14, 165, 233, 0.35);
+      color: #FFFFFF;
+    }
+
+    .btn-secondary {
+      background-color: #FFFFFF;
+      color: var(--primary);
+      border: 1px solid var(--accent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--secondary);
+      color: var(--secondary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-white {
+      background-color: #FFFFFF;
+      color: var(--primary);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-white:hover {
+      background-color: #F0F9FF;
+      color: var(--secondary);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-lg {
+      padding: 16px 34px;
+      font-size: 1.05rem;
+      border-radius: 12px;
+    }
+
+    /* ==========================================================================
+       STICKY NAVBAR
+       ========================================================================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 2px 14px -2px rgba(8, 47, 73, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+      transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--primary);
+      letter-spacing: -0.03em;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .brand:hover {
+      opacity: 0.9;
+    }
+
+    .brand-logo-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--primary) 0%, #0c4a6e 100%);
+      display: grid;
+      place-items: center;
+      color: var(--secondary);
+      font-size: 1rem;
+      border: 1px solid rgba(14, 165, 233, 0.3);
+    }
+
+    .brand-logo-img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      object-fit: contain;
+      display: block;
+      box-shadow: 0 2px 6px rgba(8, 47, 73, 0.1);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #334155;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      padding: 4px 2px;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--secondary);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-login {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary);
+      padding: 6px 12px;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav-login:hover {
+      color: var(--secondary);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 4.5px;
+      width: 36px;
+      height: 36px;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.2s ease;
+    }
+
+    .mobile-menu-btn:hover {
+      background: #F1F5F9;
+      border-color: #CBD5E1;
+    }
+
+    .mobile-menu-btn span {
+      width: 18px;
+      height: 2px;
+      background-color: var(--primary);
+      border-radius: 2px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-origin: center;
+    }
+
+    .mobile-menu-btn.open span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg);
+      background-color: var(--secondary);
+    }
+
+    .mobile-menu-btn.open span:nth-child(2) {
+      opacity: 0;
+      transform: scale(0);
+    }
+
+    .mobile-menu-btn.open span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg);
+      background-color: var(--secondary);
+    }
+
+    .mobile-nav-drawer {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--accent);
+      padding: 20px 18px 24px;
+      box-shadow: 0 16px 36px rgba(8, 47, 73, 0.12);
+      border-radius: 0 0 16px 16px;
+      animation: drawerSlideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes drawerSlideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .mobile-nav-drawer.open {
+      display: block;
+    }
+
+    .mobile-nav-drawer ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .mobile-nav-drawer .nav-link {
+      font-size: 1.05rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      color: var(--primary);
+      transition: all 0.15s ease;
+    }
+
+    .mobile-nav-drawer .nav-link:hover,
+    .mobile-nav-drawer .nav-link:active {
+      background: #F0F9FF;
+      color: var(--secondary);
+    }
+
+    .mobile-nav-drawer .btn {
+      padding: 11px 18px;
+      font-size: 0.92rem;
+      border-radius: 10px;
+      justify-content: center;
+      min-height: 42px;
+    }
+
+    /* ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+    .hero {
+      position: relative;
+      padding: 70px 0 90px;
+      overflow: hidden;
+      background: radial-gradient(circle at 80% 20%, rgba(14, 165, 233, 0.15) 0%, rgba(240, 249, 255, 0) 60%),
+                  radial-gradient(circle at 10% 80%, rgba(8, 47, 73, 0.05) 0%, rgba(240, 249, 255, 0) 50%),
+                  var(--bg);
+    }
+
+    .hero-grid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+    }
+
+    /* Hero Entrance Keyframes */
+    @keyframes heroFadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-content .eyebrow {
+      font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      text-transform: none;
+      padding: 8px 20px;
+      gap: 8px;
+      border-radius: 999px;
+      background: rgba(14, 165, 233, 0.12);
+      border: 1.5px solid rgba(14, 165, 233, 0.35);
+      color: var(--primary);
+      margin-bottom: 20px;
+      box-shadow: 0 4px 14px rgba(14, 165, 233, 0.12);
+      animation: heroFadeSlideUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.8rem, 5.2vw, 4.2rem);
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+      margin-bottom: 20px;
+      color: var(--primary);
+      animation: heroFadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
+    }
+
+    .hero-content h1 span.highlight {
+      color: var(--secondary);
+    }
+
+    .hero-content p.lead {
+      font-size: 1.18rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      max-width: 680px;
+      animation: heroFadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+      animation: heroFadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.38s both;
+    }
+
+    .trust-statement {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      animation: heroFadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.48s both;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-content .eyebrow,
+      .hero-content h1,
+      .hero-content p.lead,
+      .hero-cta-group,
+      .trust-statement {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+
+    .trust-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--success);
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+    }
+
+    /* Mockup Frame */
+    .hero-mockup-wrapper {
+      position: relative;
+    }
+
+    .mockup-glow {
+      position: absolute;
+      inset: -20px;
+      background: radial-gradient(circle, rgba(14, 165, 233, 0.25) 0%, rgba(8, 47, 73, 0) 70%);
+      filter: blur(35px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .dashboard-mockup {
+      position: relative;
+      z-index: 1;
+      background: #FFFFFF;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+
+    .mockup-header {
+      background: #F8FAFC;
+      border-bottom: 1px solid #E2E8F0;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mockup-controls {
+      display: flex;
+      gap: 6px;
+    }
+
+    .mockup-controls span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #CBD5E1;
+    }
+
+    .mockup-controls span:nth-child(1) { background: #FDA4AF; }
+    .mockup-controls span:nth-child(2) { background: #FCD34D; }
+    .mockup-controls span:nth-child(3) { background: #86EFAC; }
+
+    .mockup-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .mockup-badge {
+      background: #E0F2FE;
+      color: var(--primary);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .mockup-body {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 16px;
+      background: #F8FAFC;
+    }
+
+    .mockup-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: var(--radius-sm);
+      padding: 14px;
+    }
+
+    .mockup-card-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Tasks list in mockup */
+    .task-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 0;
+      border-bottom: 1px solid #F1F5F9;
+      font-size: 0.8rem;
+    }
+
+    .task-item:last-child {
+      border-bottom: none;
+    }
+
+    .task-checkbox {
+      width: 15px;
+      height: 15px;
+      border-radius: 4px;
+      border: 1.5px solid var(--accent);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .task-checkbox.checked {
+      background: var(--success);
+      border-color: var(--success);
+      color: white;
+      font-size: 9px;
+    }
+
+    .priority-tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin-left: auto;
+    }
+
+    .tag-urgent { background: #FEE2E2; color: #DC2626; }
+    .tag-high { background: #FEF3C7; color: #D97706; }
+    .tag-deep { background: #E0F2FE; color: #0284C7; }
+
+    /* Focus widget in mockup */
+    .focus-widget {
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .focus-timer {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.03em;
+    }
+
+    .focus-status {
+      font-size: 0.72rem;
+      color: var(--secondary);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .progress-bar-bg {
+      height: 6px;
+      background: #E2E8F0;
+      border-radius: 99px;
+      overflow: hidden;
+      margin-top: 6px;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--secondary), var(--success));
+      border-radius: 99px;
+    }
+
+    /* Habit dots in mockup */
+    .habit-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 0;
+      font-size: 0.78rem;
+    }
+
+    .habit-dots {
+      display: flex;
+      gap: 4px;
+    }
+
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      background: #E2E8F0;
+    }
+
+    .dot.done {
+      background: var(--success);
+    }
+
+    /* ==========================================================================
+       SOCIAL PROOF / STATS SECTION
+       ========================================================================== */
+    .proof-section {
+      background: #FFFFFF;
+      border-top: 1px solid var(--accent);
+      border-bottom: 1px solid var(--accent);
+      padding: 48px 0;
+    }
+
+    .proof-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .proof-header p {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--primary);
+      letter-spacing: -0.01em;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 16px 20px;
+      background: var(--bg);
+      border: 1px solid #E2E8F0;
+      border-radius: var(--radius-md);
+      transition: transform 0.2s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--secondary);
+    }
+
+    .stat-number {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       PROBLEM VS SOLUTION SECTION
+       ========================================================================== */
+    .problem-section {
+      padding: 90px 0;
+      background-color: var(--bg);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 56px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      margin-bottom: 16px;
+    }
+
+    .section-header p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .apps-scatter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 24px auto 36px;
+      max-width: 800px;
+    }
+
+    .scatter-pill {
+      background: #FFFFFF;
+      border: 1px solid var(--accent);
+      padding: 6px 14px;
+      border-radius: 99px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .comparison-card {
+      padding: 38px 34px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--accent);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .comparison-card.before {
+      background: #FFFFFF;
+      border-color: #E2E8F0;
+    }
+
+    .comparison-card.after {
+      background: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--navy-border);
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+
+    .comparison-card.after h3,
+    .comparison-card.after p {
+      color: #FFFFFF;
+    }
+
+    .card-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 12px;
+      border-radius: 99px;
+      margin-bottom: 16px;
+      width: fit-content;
+    }
+
+    .badge-before {
+      background: #FEE2E2;
+      color: #DC2626;
+    }
+
+    .badge-after {
+      background: rgba(14, 165, 233, 0.25);
+      color: #7DD3FC;
+      border: 1px solid rgba(14, 165, 233, 0.4);
+    }
+
+    .comparison-flow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      flex-wrap: wrap;
+    }
+
+    .flow-step {
+      padding: 8px 14px;
+      border-radius: 8px;
+    }
+
+    .before .flow-step {
+      background: #F1F5F9;
+      color: var(--text-main);
+      border: 1px dashed var(--accent);
+    }
+
+    .after .flow-step {
+      background: rgba(255, 255, 255, 0.1);
+      color: #F0F9FF;
+      border: 1px solid rgba(14, 165, 233, 0.35);
+    }
+
+    .flow-arrow {
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .after .flow-arrow {
+      color: var(--secondary);
+    }
+
+    /* ==========================================================================
+       CORE FEATURES SECTION (9 CARDS)
+       ========================================================================== */
+    .features-section {
+      padding: 90px 0;
+      background: #FFFFFF;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: var(--radius-md);
+      padding: 30px 26px;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--secondary);
+      box-shadow: var(--shadow-md);
+    }
+
+    .feature-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: #F0F9FF;
+      border: 1px solid #BAE6FD;
+      display: grid;
+      place-items: center;
+      color: var(--secondary);
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .feature-card:hover .feature-icon-box {
+      background: var(--primary);
+      color: var(--secondary);
+      border-color: var(--primary);
+    }
+
+    .feature-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    .feature-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Quiz Highlight banner within features */
+    .quiz-callout-banner {
+      margin-top: 40px;
+      background: linear-gradient(135deg, var(--bg) 0%, #E0F2FE 100%);
+      border: 1px solid #BAE6FD;
+      border-radius: var(--radius-md);
+      padding: 28px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .quiz-callout-text h3 {
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+      color: var(--primary);
+    }
+
+    .quiz-callout-text p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* ==========================================================================
+       "BUILT FOR PASSIONATE PEOPLE" / DAY CONTROL SECTION (LIGHT MODE)
+       ========================================================================== */
+    .day-control-section {
+      background-color: #F8FAFC;
+      color: var(--text-main);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid #E2E8F0;
+      border-bottom: 1px solid #E2E8F0;
+    }
+
+    .day-control-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, rgba(248, 250, 252, 0) 70%);
+      pointer-events: none;
+    }
+
+    .day-control-section h2 {
+      color: var(--primary);
+      font-size: clamp(2.75rem, 5.5vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .day-control-section p.subhead {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 680px;
+      line-height: 1.65;
+      margin-bottom: 48px;
+    }
+
+    .pillars-pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+
+    .pillar-pill {
+      background: #FFFFFF;
+      border: 1px solid var(--accent);
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 99px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .day-visual-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    /* Schedule Timeline */
+    .schedule-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .schedule-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: #FFFFFF;
+      border: 1px solid var(--accent);
+      padding: 12px 18px;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 4px rgba(8, 47, 73, 0.03);
+    }
+
+    .schedule-row:hover {
+      background: #F0F9FF;
+      border-color: var(--secondary);
+      transform: translateX(4px);
+    }
+
+    .schedule-row.active-deep-work {
+      background: #F0F9FF;
+      border-color: var(--secondary);
+    }
+
+    .schedule-time {
+      font-family: monospace;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--secondary);
+      min-width: 55px;
+    }
+
+    .schedule-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .schedule-badge {
+      margin-left: auto;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 4px;
+      background: #F1F5F9;
+      color: var(--text-muted);
+      border: 1px solid #E2E8F0;
+    }
+
+    /* Day Dashboard Visualizer */
+    .day-preview-panel {
+      background: #FFFFFF;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: 0 16px 40px rgba(8, 47, 73, 0.08);
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #E2E8F0;
+    }
+
+    .panel-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .panel-stat-ring {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #F0F9FF;
+      padding: 14px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      border: 1px solid #BAE6FD;
+    }
+
+    /* ==========================================================================
+       FOR PASSIONATE PEOPLE (BRAND PHILOSOPHY)
+       ========================================================================== */
+    .philosophy-section {
+      padding: 100px 0;
+      background: var(--bg);
+    }
+
+    .philosophy-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 64px;
+    }
+
+    .philosophy-header h2 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      margin-bottom: 20px;
+      line-height: 1.12;
+    }
+
+    .philosophy-header p.quote {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .principle-card {
+      background: #FFFFFF;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 44px 34px;
+      text-align: left;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .principle-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--secondary);
+    }
+
+    .principle-num {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--secondary);
+      margin-bottom: 16px;
+      font-family: monospace;
+    }
+
+    .principle-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+
+    .principle-card p {
+      font-size: 1.02rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       HOW IT WORKS SECTION (3-STEP PROCESS WITH CONNECTOR)
+       ========================================================================== */
+    .how-it-works-section {
+      padding: 100px 0;
+      background: #FFFFFF;
+      position: relative;
+    }
+
+    .steps-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+      position: relative;
+      margin-top: 48px;
+    }
+
+    .steps-connector-line {
+      position: absolute;
+      top: 38px;
+      left: 15%;
+      right: 15%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%);
+      z-index: 0;
+      opacity: 0.35;
+    }
+
+    .step-card {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 0 16px;
+    }
+
+    .step-badge {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--secondary);
+      display: grid;
+      place-items: center;
+      margin: 0 auto 24px;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      box-shadow: 0 0 0 8px #FFFFFF;
+      transition: all 0.2s ease;
+    }
+
+    .step-card:hover .step-badge {
+      background: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--primary);
+    }
+
+    .step-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+
+    .step-card p {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       PRICING SECTION
+       ========================================================================== */
+    .pricing-section {
+      padding: 90px 0;
+      background: var(--bg);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 440px));
+      justify-content: center;
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .pricing-card {
+      background: #FFFFFF;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.25s ease;
+    }
+
+    .pricing-card.pro-card {
+      border: 2px solid var(--secondary);
+      box-shadow: var(--shadow-md);
+    }
+
+    .pro-tag {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--secondary);
+      color: #FFFFFF;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      padding: 4px 14px;
+      border-radius: 99px;
+      text-transform: uppercase;
+    }
+
+    .pricing-name {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .pricing-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      min-height: 40px;
+    }
+
+    .pricing-price {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .pricing-price span.term {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .pricing-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 36px;
+      flex-grow: 1;
+    }
+
+    .pricing-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.92rem;
+      color: var(--text-main);
+    }
+
+    .check-icon {
+      color: var(--success);
+      font-weight: 800;
+      font-size: 1rem;
+    }
+
+    /* Comparison Table in Pricing */
+    .pricing-table-container {
+      margin-top: 56px;
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      box-shadow: 0 4px 20px rgba(8, 47, 73, 0.03);
+    }
+
+    .pricing-compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    .pricing-compare-table th {
+      background: #F8FAFC;
+      color: var(--primary);
+      font-weight: 800;
+      padding: 16px 20px;
+      border-bottom: 1px solid #E2E8F0;
+    }
+
+    .pricing-compare-table th.highlight-col {
+      background: #F0F9FF;
+      color: var(--secondary);
+      border-bottom: 2px solid var(--secondary);
+    }
+
+    .pricing-compare-table td {
+      padding: 14px 20px;
+      border-bottom: 1px solid #F1F5F9;
+      color: var(--text-main);
+    }
+
+    .pricing-compare-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .pricing-compare-table tr:hover td {
+      background: #F8FAFC;
+    }
+
+    .pricing-compare-table tr:hover td.highlight-col {
+      background: #E0F2FE;
+    }
+
+    .pricing-compare-table td.highlight-col {
+      background: #F0F9FF;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .pill-limit {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 99px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: #E2E8F0;
+      color: #334155;
+    }
+
+    .pill-unlimited {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 99px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: #DCFCE7;
+      color: #166534;
+    }
+
+    .dash-icon {
+      color: #94A3B8;
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+       FIT & INTENT SECTION (WHY NOT FOR YOU)
+       ========================================================================== */
+    .not-for-you-section {
+      padding: 96px 0;
+      background: #082F49;
+      color: #FFFFFF;
+      position: relative;
+    }
+
+    .not-for-you-card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-lg);
+      padding: 56px 48px;
+      max-width: 860px;
+      margin: 0 auto;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .not-for-you-card h2 {
+      font-size: clamp(1.8rem, 2.8vw, 2.3rem);
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+      line-height: 1.25;
+    }
+
+    .not-for-you-card p {
+      font-size: 1.08rem;
+      color: #CBD5E1;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .not-for-you-card p strong {
+      color: #FFFFFF;
+    }
+
+    .not-for-you-contrast {
+      background: rgba(14, 165, 233, 0.08);
+      border-left: 4px solid var(--secondary);
+      padding: 22px 24px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin: 28px 0;
+      font-size: 1.05rem;
+      color: #F0F9FF;
+      line-height: 1.7;
+    }
+
+    .not-for-you-conclusion {
+      font-size: 1.22rem;
+      font-weight: 700;
+      color: #38BDF8;
+      line-height: 1.5;
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* ==========================================================================
+       FAQ SECTION (EXPANDABLE ACCORDIONS)
+       ========================================================================== */
+    .faq-section {
+      padding: 90px 0;
+      background: #FFFFFF;
+    }
+
+    .faq-accordion-list {
+      max-width: 800px;
+      margin: 48px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .faq-item {
+      background: var(--bg);
+      border: 1px solid #E2E8F0;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color 0.2s ease;
+    }
+
+    .faq-item:hover {
+      border-color: var(--secondary);
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 20px 24px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+    }
+
+    .faq-icon {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--secondary);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 24px 22px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    /* ==========================================================================
+       FINAL CTA SECTION
+       ========================================================================== */
+    .final-cta-section {
+      background: radial-gradient(circle at 50% 50%, #0C3A5A 0%, var(--primary) 100%);
+      color: #FFFFFF;
+      padding: 100px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta-section::after {
+      content: '';
+      position: absolute;
+      bottom: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 300px;
+      background: radial-gradient(ellipse, rgba(14, 165, 233, 0.3) 0%, rgba(8, 47, 73, 0) 70%);
+      pointer-events: none;
+    }
+
+    .final-cta-content {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .final-cta-section h2 {
+      color: #FFFFFF;
+      font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+      margin-bottom: 18px;
+    }
+
+    .final-cta-section p {
+      font-size: 1.15rem;
+      color: var(--accent);
+      line-height: 1.65;
+      margin-bottom: 36px;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .footer {
+      background: var(--primary);
+      border-top: 1px solid var(--navy-border);
+      color: #FFFFFF;
+      padding: 70px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand p {
+      color: var(--accent);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-top: 14px;
+      max-width: 280px;
+    }
+
+    .footer-col-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--secondary);
+      margin-bottom: 18px;
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links-list a {
+      font-size: 0.88rem;
+      color: var(--accent);
+      transition: color 0.2s ease;
+    }
+
+    .footer-links-list a:hover {
+      color: #FFFFFF;
+    }
+
+    .footer-bottom {
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      color: var(--accent);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS & MOBILE ENHANCEMENTS
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .day-visual-layout {
+        grid-template-columns: 1fr;
+      }
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 18px;
+      }
+      .nav-links, .nav-actions .nav-login {
+        display: none;
+      }
+      .nav-actions {
+        gap: 8px;
+      }
+      .nav-actions .btn {
+        padding: 7px 14px;
+        font-size: 0.84rem;
+        font-weight: 600;
+        border-radius: 8px;
+      }
+      .mobile-menu-btn {
+        display: flex;
+        width: 38px;
+        height: 38px;
+      }
+      .hero {
+        padding: 42px 0 56px;
+      }
+      .hero-content h1 {
+        font-size: clamp(2rem, 7vw, 2.6rem);
+        line-height: 1.2;
+      }
+      .hero-content .lead {
+        font-size: 0.98rem;
+        line-height: 1.6;
+        margin-bottom: 24px;
+      }
+      .hero-cta-group {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 320px;
+        gap: 10px;
+      }
+      .hero-cta-group .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 11px 18px;
+        font-size: 0.92rem;
+        border-radius: 10px;
+      }
+      .btn-lg {
+        padding: 11px 20px;
+        font-size: 0.92rem;
+        border-radius: 10px;
+      }
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .stat-item {
+        padding: 20px 14px;
+      }
+      .stat-item .stat-num {
+        font-size: 1.8rem;
+      }
+      .comparison-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .comparison-card {
+        padding: 26px 20px;
+      }
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .feature-card {
+        padding: 24px 20px;
+      }
+      .quiz-callout-banner {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        padding: 26px 18px;
+        gap: 16px;
+      }
+      .quiz-callout-banner .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 11px 18px;
+        font-size: 0.9rem;
+        white-space: normal;
+        text-align: center;
+      }
+      .principles-grid {
+        grid-template-columns: 1fr;
+      }
+      .steps-container {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .steps-connector-line {
+        display: none;
+      }
+      .not-for-you-section {
+        padding: 60px 0;
+      }
+      .not-for-you-card {
+        padding: 32px 20px;
+      }
+      .not-for-you-card h2 {
+        font-size: 1.65rem;
+      }
+      .not-for-you-card p {
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .pricing-card {
+        padding: 28px 20px;
+      }
+      .pricing-card .btn {
+        padding: 11px 18px;
+        font-size: 0.92rem;
+      }
+      .pricing-table-container {
+        margin-top: 36px;
+        border-radius: var(--radius-sm);
+        -webkit-overflow-scrolling: touch;
+      }
+      .pricing-compare-table th,
+      .pricing-compare-table td {
+        padding: 12px 14px;
+        font-size: 0.86rem;
+      }
+      .faq-section {
+        padding: 60px 0;
+      }
+      .faq-question {
+        padding: 16px 18px;
+        font-size: 0.98rem;
+      }
+      .faq-answer {
+        padding: 0 18px 18px;
+        font-size: 0.9rem;
+      }
+      .final-cta-section {
+        padding: 60px 0;
+      }
+      .final-cta-section h2 {
+        font-size: 1.95rem;
+      }
+      .final-cta-section .btn {
+        padding: 12px 24px;
+        font-size: 0.94rem;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px 20px;
+      }
+      .mockup-body {
+        grid-template-columns: 1fr;
+        padding: 14px;
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 14px;
+      }
+      .nav-actions .btn {
+        padding: 6px 11px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        border-radius: 7px;
+      }
+      .mobile-menu-btn {
+        width: 36px;
+        height: 36px;
+      }
+      .hero-content .eyebrow {
+        font-size: 0.85rem;
+        padding: 5px 12px;
+      }
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .btn-lg {
+        width: 100%;
+        padding: 11px 16px;
+        font-size: 0.88rem;
+      }
+      .hero-cta-group .btn {
+        padding: 10px 16px;
+        font-size: 0.88rem;
+      }
+      .day-schedule-card {
+        padding: 18px 14px;
+      }
+      .day-time-slot {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" aria-label="WrindhaOS Home">
+        <img src="Images/Image1.jpeg" alt="WrindhaOS Logo" class="brand-logo-img" />
+        <span>WrindhaOS</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+        <li><a href="#why" class="nav-link">Why WrindhaOS</a></li>
+        <li><a href="#pricing" class="nav-link">Pricing</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="join.html" class="nav-login">Log In</a>
+        <a href="join.html" class="btn btn-primary">Get Started</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer">
+      <ul>
+        <li><a href="#features" class="nav-link mobile-link">Features</a></li>
+        <li><a href="#how-it-works" class="nav-link mobile-link">How It Works</a></li>
+        <li><a href="#why" class="nav-link mobile-link">Why WrindhaOS</a></li>
+        <li><a href="#pricing" class="nav-link mobile-link">Pricing</a></li>
+        <li><a href="#faq" class="nav-link mobile-link">FAQ</a></li>
+        <li><a href="quiz.html" class="nav-link mobile-link">2-Min Quiz Self Assessment</a></li>
+      </ul>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <a href="join.html" class="btn btn-secondary" style="width:100%;">Log In</a>
+        <a href="join.html" class="btn btn-primary" style="width:100%;">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <!-- Hero Content -->
+        <div class="hero-content">
+          <div class="eyebrow">
+            <span>✨</span> Built for passionate people
+          </div>
+          <h1>where system meets your <span class="highlight">passion</span></h1>
+          <p class="lead">
+            WrindhaOS brings your goals, tasks, habits, focus, planning, career, and everyday life into one simple system — so you can focus on what actually matters.
+          </p>
+          <div class="hero-cta-group">
+            <a href="join.html" class="btn btn-primary btn-lg">Start Your Journey</a>
+            <a href="#features" class="btn btn-secondary btn-lg">Explore WrindhaOS</a>
+          </div>
+          <div class="trust-statement">
+            <span class="trust-dot"></span>
+            <span>Built for students, aspirants, professionals & passionate people.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SOCIAL PROOF / METRICS -->
+  <section class="proof-section">
+    <div class="container">
+      <div class="proof-header">
+        <p>Built for people who refuse to waste their potential.</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">12,400+</div>
+          <div class="stat-label">Goals Organized</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">185,000+</div>
+          <div class="stat-label">Tasks Completed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">48,000+</div>
+          <div class="stat-label">Focus Hours Logged</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">15,000+</div>
+          <div class="stat-label">Users Growing with WrindhaOS</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM SECTION (BEFORE VS AFTER) -->
+  <section class="problem-section" id="why">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">The Fragmentation Problem</div>
+        <h2>Your ambition shouldn't be scattered across your mind, notes & papers</h2>
+        <p>
+          High performers struggle not from a lack of motivation, but from fractured systems. When your daily life lives across 8 different disconnected tools, mental energy is wasted managing clutter instead of executing.
+        </p>
+
+        <!-- Scattered apps pills -->
+        <div class="apps-scatter-pills">
+          <span class="scatter-pill">❌ To-do lists</span>
+          <span class="scatter-pill">❌ Loose notes</span>
+          <span class="scatter-pill">❌ Habit apps</span>
+          <span class="scatter-pill">❌ Timetables</span>
+          <span class="scatter-pill">❌ Goal trackers</span>
+          <span class="scatter-pill">❌ Focus timers</span>
+          <span class="scatter-pill">❌ Career notes</span>
+          <span class="scatter-pill">❌ Finance logs</span>
+          <span class="scatter-pill">❌ Analytics tools</span>
+        </div>
+      </div>
+
+      <!-- Comparison Cards -->
+      <div class="comparison-grid">
+        <!-- Before Card -->
+        <div class="comparison-card before">
+          <div class="card-status-badge badge-before">Before WrindhaOS</div>
+          <h3 style="font-size:1.4rem; margin-bottom:12px;">Scattered Effort & Chaos</h3>
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6;">
+            Multiple disconnected apps create friction, forgotten commitments, inconsistent routines, and continuous mental exhaustion.
+          </p>
+          <div class="comparison-flow">
+            <span class="flow-step">Multiple apps</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">Scattered info</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">Inconsistent execution</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">Lost focus</span>
+          </div>
+        </div>
+
+        <!-- After Card -->
+        <div class="comparison-card after">
+          <div class="card-status-badge badge-after">With WrindhaOS</div>
+          <h3 style="font-size:1.4rem; margin-bottom:12px;">Unified Organising System</h3>
+          <p style="font-size:0.95rem; line-height:1.6; opacity:0.92;">
+            Every priority, study module, habit loop, and long-term goal synchronizes into one seamless architecture.
+          </p>
+          <div class="comparison-flow">
+            <span class="flow-step">One system</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">Clear priorities</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">Structured days</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step" style="background:rgba(16, 185, 129, 0.2); border-color:var(--success); color:#6EE7B7;">Consistent progress</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE FEATURES SECTION (9 PILLARS) -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">Comprehensive System</div>
+        <h2>Everything You Need. One Organizing System.</h2>
+        <p>Built intentionally for clarity, rigorous execution, and daily peace of mind.</p>
+      </div>
+
+      <div class="features-grid">
+        <!-- 1. Dashboard -->
+        <div class="feature-card">
+          <div class="feature-icon-box">📊</div>
+          <h3>Dashboard</h3>
+          <p>See your entire day, active commitments, and habit momentum at a single glance in one unified view.</p>
+        </div>
+
+        <!-- 2. Smart Planning -->
+        <div class="feature-card">
+          <div class="feature-icon-box">🗓️</div>
+          <h3>Smart Planning</h3>
+          <p>Organize your priorities, tasks, deadlines, and available time without cognitive overload or schedule clashes.</p>
+        </div>
+
+        <!-- 3. Study Planner -->
+        <div class="feature-card">
+          <div class="feature-icon-box">📚</div>
+          <h3>Study Planner</h3>
+          <p>Plan syllabus breakdowns, revision cycles, mock tests, and academic targets with structured precision.</p>
+        </div>
+
+        <!-- 4. Focus Centre -->
+        <div class="feature-card">
+          <div class="feature-icon-box">🎯</div>
+          <h3>Focus Centre</h3>
+          <p>Execute deep work sessions with customizable Pomodoro timers, distraction shields, and flow metrics.</p>
+        </div>
+
+        <!-- 5. Habits & Matrix -->
+        <div class="feature-card">
+          <div class="feature-icon-box">🔄</div>
+          <h3>Habits & Eisenhower Matrix</h3>
+          <p>Build unshakeable daily habits and systematically triage tasks by urgency and true long-term importance.</p>
+        </div>
+
+        <!-- 6. Goal System -->
+        <div class="feature-card">
+          <div class="feature-icon-box">🏆</div>
+          <h3>Goal System</h3>
+          <p>Turn ambitious multi-year visions into monthly milestones, weekly sprints, and executable daily actions.</p>
+        </div>
+
+        <!-- 7. Career Roadmap -->
+        <div class="feature-card">
+          <div class="feature-icon-box">🚀</div>
+          <h3>Career Roadmap</h3>
+          <p>Map your professional trajectory, track skill acquisition, portfolio projects, and milestone achievements.</p>
+        </div>
+
+        <!-- 8. Finance -->
+        <div class="feature-card">
+          <div class="feature-icon-box">💳</div>
+          <h3>Finance</h3>
+          <p>Track personal financial activity, monthly budgets, and subscription awareness with absolute privacy.</p>
+        </div>
+
+        <!-- 9. Analytics -->
+        <div class="feature-card">
+          <div class="feature-icon-box">📈</div>
+          <h3>Analytics</h3>
+          <p>Understand your productivity patterns, study velocity, and energy cycles with actionable visual data.</p>
+        </div>
+      </div>
+
+      <!-- Self Assessment Callout Banner -->
+      <div class="quiz-callout-banner">
+        <div class="quiz-callout-text">
+          <h3>Your best days start with understanding yourself.</h3>
+          <p>Take our 2-minute self-assessment to discover what’s affecting your focus, consistency, and daily progress—and find where your system needs improvement.</p>
+        </div>
+        <a href="quiz.html" class="btn btn-primary">Take 2-Min Self-Assessment Quiz →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUILT FOR PASSIONATE PEOPLE / DAY CONTROL SECTION (LIGHT MODE) -->
+  <section class="day-control-section">
+    <div class="container">
+      <div class="day-visual-layout" style="grid-template-columns: 1fr; max-width: 860px; margin: 0 auto;">
+        <!-- Text & Timeline -->
+        <div>
+          <div class="eyebrow">Architecture of a Productive Day</div>
+          <h2>Built for Passionate People</h2>
+          <p class="subhead">
+            WrindhaOS goes far beyond a generic to-do list. It aligns your daily clock with your long-term ambitions, ensuring every hour has purpose and balance.
+          </p>
+
+          <div class="pillars-pill-group">
+            <span class="pillar-pill">Priorities</span>
+            <span class="pillar-pill">Goals</span>
+            <span class="pillar-pill">Habits</span>
+            <span class="pillar-pill">Deep Focus</span>
+            <span class="pillar-pill">Career</span>
+            <span class="pillar-pill">Life Planning</span>
+          </div>
+
+          <!-- Interactive Schedule List -->
+          <div class="schedule-list">
+            <div class="schedule-row">
+              <span class="schedule-time">07:00</span>
+              <span class="schedule-title">Morning Routine & Mindset Prep</span>
+              <span class="schedule-badge">HABIT</span>
+            </div>
+            <div class="schedule-row">
+              <span class="schedule-time">08:00</span>
+              <span class="schedule-title">Classes / Core Work Execution</span>
+              <span class="schedule-badge">COMMITMENT</span>
+            </div>
+            <div class="schedule-row active-deep-work">
+              <span class="schedule-time">11:00</span>
+              <span class="schedule-title">Deep Work Session (High Priority)</span>
+              <span class="schedule-badge" style="background:var(--secondary); color:#FFFFFF; border-color:var(--secondary);">FOCUS 90M</span>
+            </div>
+            <div class="schedule-row">
+              <span class="schedule-time">13:00</span>
+              <span class="schedule-title">Lunch Break & Mind Recharge</span>
+              <span class="schedule-badge">RECHARGE</span>
+            </div>
+            <div class="schedule-row">
+              <span class="schedule-time">14:00</span>
+              <span class="schedule-title">Important Tasks & Problem Sets</span>
+              <span class="schedule-badge">Q1 PRIORITY</span>
+            </div>
+            <div class="schedule-row">
+              <span class="schedule-time">17:00</span>
+              <span class="schedule-title">Skill Development & Revision</span>
+              <span class="schedule-badge">GROWTH</span>
+            </div>
+            <div class="schedule-row">
+              <span class="schedule-time">19:00</span>
+              <span class="schedule-title">Exercise & Personal Time</span>
+              <span class="schedule-badge">WELLNESS</span>
+            </div>
+            <div class="schedule-row">
+              <span class="schedule-time">21:00</span>
+              <span class="schedule-title">Daily Review & Tomorrow's Blueprint</span>
+              <span class="schedule-badge">REFLECTION</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR PASSIONATE PEOPLE (BRAND PHILOSOPHY) -->
+  <section class="philosophy-section">
+    <div class="container">
+      <div class="philosophy-header">
+        <div class="eyebrow">Our Guiding Philosophy</div>
+        <h2>Built For People Who Want More From Their Time.</h2>
+        <p class="quote">
+          "WrindhaOS isn't about doing more things. It's about doing the right things consistently."
+        </p>
+      </div>
+
+      <div class="principles-grid">
+        <!-- 1. Clarity -->
+        <div class="principle-card">
+          <div class="principle-num">01 / PRINCIPLE</div>
+          <h3>Clarity</h3>
+          <p>Know what matters. Eliminate the background anxiety of forgotten duties by giving every ambition a defined home and realistic schedule.</p>
+        </div>
+
+        <!-- 2. Consistency -->
+        <div class="principle-card">
+          <div class="principle-num">02 / PRINCIPLE</div>
+          <h3>Consistency</h3>
+          <p>Turn intentions into automatic habits. Momentum is built in the small, daily non-negotiables executed with unwavering regularity.</p>
+        </div>
+
+        <!-- 3. Progress -->
+        <div class="principle-card">
+          <div class="principle-num">03 / PRINCIPLE</div>
+          <h3>Progress</h3>
+          <p>See yourself moving forward. Tangible tracking and analytical proof of your growth keep you inspired during demanding preparation cycles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS SECTION (3-STEP PROCESS) -->
+  <section class="how-it-works-section" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">The 3-Step Framework</div>
+        <h2>How WrindhaOS Works</h2>
+        <p>A frictionless workflow designed to take you from high-level ambition to daily momentum.</p>
+      </div>
+
+      <div class="steps-container">
+        <div class="steps-connector-line"></div>
+
+        <!-- Step 1 -->
+        <div class="step-card">
+          <div class="step-badge">01</div>
+          <h3>Define</h3>
+          <p>Set your overarching goals, syllabus requirements, key habits, and career roadmap in your central database.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card">
+          <div class="step-badge">02</div>
+          <h3>Organize</h3>
+          <p>Convert goals into prioritized tasks, calendar schedules, and structured deep work time blocks.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card">
+          <div class="step-badge">03</div>
+          <h3>Execute</h3>
+          <p>Work with focused intensity, log your habit streaks, learn from your performance metrics, and level up.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING SECTION -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">Transparent Pricing</div>
+        <h2>Invest in Your Progress</h2>
+        <p>Simple, accessible pricing crafted for students and dedicated professionals.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Free Plan -->
+        <div class="pricing-card">
+          <div class="pricing-name">Free</div>
+          <div class="pricing-desc">Essential daily planning for individuals starting their discipline journey.</div>
+          <div class="pricing-price">₹0 <span class="term">/ month</span></div>
+          <ul class="pricing-features-list">
+            <li class="pricing-feature-item"><span class="check-icon">✓</span> <strong>2 Habits</strong> Tracking</li>
+            <li class="pricing-feature-item"><span class="check-icon">✓</span> <strong>2 Subjects</strong> &amp; Units Planner</li>
+            <li class="pricing-feature-item"><span class="check-icon">✓</span> Interactive <strong>Calendar</strong> &amp; Timetable</li>
+            <li class="pricing-feature-item"><span class="check-icon">✓</span> Daily <strong>To-Do List</strong></li>
+            <li class="pricing-feature-item"><span class="check-icon">✓</span> Core Daily Dashboard</li>
+            <li class="pricing-feature-item"><span class="check-icon">✓</span> Local Data Privacy &amp; Offline Support</li>
+          </ul>
+          <a href="join.html" class="btn btn-secondary" style="width:100%;">Get Started Free</a>
+        </div>
+
+        <!-- Premium Plan -->
+        <div class="pricing-card pro-card">
+          <div class="pro-tag">RECOMMENDED</div>
+          <div class="pricing-name">Premium</div>
+          <div class="pricing-desc">The complete personal operating system with unlimited power and advanced tools.</div>
+          <div class="pricing-price">₹49 <span class="term">/ month</span></div>
+          <ul class="pricing-features-list">
+            <li class="pricing-feature-item"><span class="check-icon">✓</span> <strong>Everything Unlimited</strong> (Habits, Subjects &amp; Tasks)</li>
+            <li class="pricing-feature-item"><span class="check-icon">✓</span> <strong>Career Roadmap</strong> &amp; Goal Architecture</li>
+            <li class="pricing-feature-item"><span class="check-icon">✓</span> <strong>Expense Tracker</strong> &amp; Budget Awareness</li>
+            <li class="pricing-feature-item"><span class="check-icon">✓</span> Encrypted <strong>Private Journal</strong> &amp; Reflections</li>
+            <li class="pricing-feature-item"><span class="check-icon">✓</span> <strong>Priority Matrix</strong> (Eisenhower 4-Quadrant)</li>
+            <li class="pricing-feature-item"><span class="check-icon">✓</span> Full <strong>Study Tools</strong> (Focus Centre &amp; Syllabus Manager)</li>
+            <li class="pricing-feature-item"><span class="check-icon">✓</span> Deep <strong>Productivity Analytics</strong> &amp; Insights</li>
+          </ul>
+          <a href="join.html" class="btn btn-primary" style="width:100%;">Upgrade to Premium</a>
+        </div>
+      </div>
+
+      <!-- DETAILED FEATURE COMPARISON TABLE -->
+      <div class="pricing-table-container">
+        <table class="pricing-compare-table">
+          <thead>
+            <tr>
+              <th style="width:40%;">Feature / Capability</th>
+              <th style="width:30%;">Free Plan (₹0)</th>
+              <th style="width:30%;" class="highlight-col">Premium Plan (₹49/mo)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Habits Tracking</strong></td>
+              <td><span class="pill-limit">2 Active Habits</span></td>
+              <td class="highlight-col"><span class="pill-unlimited">Unlimited Habits</span></td>
+            </tr>
+            <tr>
+              <td><strong>Academic Subjects &amp; Units</strong></td>
+              <td><span class="pill-limit">2 Subjects</span></td>
+              <td class="highlight-col"><span class="pill-unlimited">Unlimited Subjects</span></td>
+            </tr>
+            <tr>
+              <td><strong>Interactive Calendar &amp; Timetable</strong></td>
+              <td><span class="check-icon">✓</span> Included</td>
+              <td class="highlight-col"><span class="check-icon">✓</span> Included</td>
+            </tr>
+            <tr>
+              <td><strong>Daily To-Do List &amp; Quick Tasks</strong></td>
+              <td><span class="check-icon">✓</span> Included</td>
+              <td class="highlight-col"><span class="check-icon">✓</span> Included (Unlimited)</td>
+            </tr>
+            <tr>
+              <td><strong>Career Roadmap &amp; Milestones</strong></td>
+              <td><span class="dash-icon">—</span></td>
+              <td class="highlight-col"><span class="check-icon">✓</span> Full Access</td>
+            </tr>
+            <tr>
+              <td><strong>Expense Tracker &amp; Budget Awareness</strong></td>
+              <td><span class="dash-icon">—</span></td>
+              <td class="highlight-col"><span class="check-icon">✓</span> Full Access</td>
+            </tr>
+            <tr>
+              <td><strong>Encrypted Private Journal &amp; Mood Logs</strong></td>
+              <td><span class="dash-icon">—</span></td>
+              <td class="highlight-col"><span class="check-icon">✓</span> Full Access</td>
+            </tr>
+            <tr>
+              <td><strong>Priority Matrix (Eisenhower 4-Quadrant)</strong></td>
+              <td><span class="dash-icon">—</span></td>
+              <td class="highlight-col"><span class="check-icon">✓</span> Full Access</td>
+            </tr>
+            <tr>
+              <td><strong>Full Study Tools &amp; Focus Centre (Pomodoro)</strong></td>
+              <td><span class="dash-icon">—</span></td>
+              <td class="highlight-col"><span class="check-icon">✓</span> Full Access</td>
+            </tr>
+            <tr>
+              <td><strong>Deep Productivity Analytics &amp; Growth Insights</strong></td>
+              <td><span class="dash-icon">—</span></td>
+              <td class="highlight-col"><span class="check-icon">✓</span> Full Access</td>
+            </tr>
+            <tr>
+              <td><strong>Data Sync &amp; Backup</strong></td>
+              <td>Local &amp; Offline</td>
+              <td class="highlight-col">Cloud Sync + Local Offline</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY WRINDHAOS MIGHT NOT BE FOR YOU -->
+  <section class="not-for-you-section" id="fit-and-intent">
+    <div class="container">
+      <div class="not-for-you-card">
+        <div class="eyebrow" style="background:rgba(14,165,233,0.15); border-color:rgba(56,189,248,0.3); color:#38BDF8; margin-bottom:20px;">
+          Honest Clarity
+        </div>
+        <h2>Why WrindhaOS Might Not Be for You</h2>
+
+        <p>
+          WrindhaOS isn't designed for everyone.
+        </p>
+        <p>
+          You probably don't need WrindhaOS if you're completely comfortable managing your life across multiple apps, switching between task managers, habit trackers, calendars, notes, and planners.
+        </p>
+        <p>
+          You might not need it if you don't care about setting goals, building better habits, or understanding where your time and energy go.
+        </p>
+        <p>
+          And that's okay.
+        </p>
+
+        <div class="not-for-you-contrast">
+          But if you've ever felt overwhelmed by scattered tools, struggled to stay consistent, or felt like you're busy without actually moving forward—<strong>WrindhaOS was built for you.</strong>
+        </div>
+
+        <p>
+          We're not here to convince everyone to download another app.
+        </p>
+        <p>
+          We're building for people who want more clarity, better systems, and a simpler way to manage what matters.
+        </p>
+
+        <div class="not-for-you-conclusion">
+          WrindhaOS isn't about doing more. It's about building a life that moves forward with intention.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION (EXPANDABLE) -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">Got Questions?</div>
+        <h2>Frequently Asked Questions</h2>
+        <p>Everything you need to know about WrindhaOS and how it works.</p>
+      </div>
+
+      <div class="faq-accordion-list">
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What is WrindhaOS?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            WrindhaOS is an all-in-one personal organising system that integrates your study planning, task management, habit loops, focus timers, career roadmap, and life goals into one synchronized, distraction-free environment.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Who is WrindhaOS for?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            WrindhaOS is built for ambitious students, competitive exam aspirants (UPSC, GATE, JEE, NEET, GRE), professionals, and passionate creators who require a structured daily system to accomplish demanding long-term goals.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Is WrindhaOS only for students?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Not at all. While WrindhaOS offers specialized study planning modules for students, professionals and founders use it daily for career milestones, daily prioritization via the Eisenhower Matrix, habit tracking, and focus analytics.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What features are included in the system?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            WrindhaOS includes 9 integrated modules: Central Dashboard, Smart Planner, Study Planner, Focus Centre (Pomodoro), Habits Tracker with Priority Matrix, Goal Architecture, Career Roadmap, Financial Awareness, and Advanced Analytics.
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What is included in the Free vs Premium plans?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Our <strong>Free plan</strong> includes 2 habits, 2 subjects, calendar, and to-do list. Our <strong>Premium plan</strong> (₹49/month) unlocks everything unlimited plus the career roadmap, expense tracker, private journal, priority matrix, full study tools, and deep productivity analytics.
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I use WrindhaOS for both work and personal life?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes. WrindhaOS is specifically structured to eliminate life fragmentation. You can maintain academic/work tasks alongside personal wellness, reading habits, and financial logs without switching between multiple apps.
+          </div>
+        </div>
+
+        <!-- FAQ 7 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Is my data private and secure?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes, privacy is a fundamental pillar of WrindhaOS. Your data is protected with secure encryption, and we never sell your personal information or study records to third parties.
+          </div>
+        </div>
+
+        <!-- FAQ 8 -->
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I cancel my subscription anytime?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes, you can cancel your Pro subscription with a single click at any time via your account settings or Google Play Billing with no hidden lock-ins.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA SECTION -->
+  <section class="final-cta-section">
+    <div class="container">
+      <div class="final-cta-content">
+        <div class="eyebrow eyebrow-dark">Start Today</div>
+        <h2>Your goals deserve a system.</h2>
+        <p>
+          Stop letting important things get lost in the chaos. Build your system, protect your focus, and achieve your true potential with WrindhaOS.
+        </p>
+        <a href="join.html" class="btn btn-white btn-lg">Start Your Journey →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand Info -->
+        <div class="footer-brand">
+          <a href="index.html" class="brand" style="color:#FFFFFF;">
+            <img src="Images/Image1.jpeg" alt="WrindhaOS Logo" class="brand-logo-img" />
+            <span>WrindhaOS</span>
+          </a>
+          <p>
+            An all-in-one personal productivity and life-management organising system designed for ambitious and passionate people.
+          </p>
+        </div>
+
+        <!-- Col 2: Product -->
+        <div>
+          <div class="footer-col-title">Product</div>
+          <ul class="footer-links-list">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="quiz.html">Self-Assessment Quiz</a></li>
+            <li><a href="join.html">Early Access</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Company -->
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links-list">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="about.html#story">Founder Story</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Legal -->
+        <div>
+          <div class="footer-col-title">Legal</div>
+          <ul class="footer-links-list">
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="refund.html">Refund & Cancellation</a></li>
+            <li><a href="subscription.html">Subscription Policy</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 5: Support & Data -->
+        <div>
+          <div class="footer-col-title">Support & Data</div>
+          <ul class="footer-links-list">
+            <li><a href="account.html">Account Deletion</a></li>
+            <li><a href="cookie.html">Cookie Policy</a></li>
+            <li><a href="data.html">Third-Party Processors</a></li>
+            <li><a href="contact.html">Help & Support</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <div>© 2026 WrindhaOS. All rights reserved.</div>
+        <div style="display:flex; gap:16px;">
+          <a href="privacy.html">Privacy</a>
+          <span>•</span>
+          <a href="terms.html">Terms</a>
+          <span>•</span>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT FOR INTERACTION -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Mobile Drawer Toggle
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const mobileDrawer = document.getElementById('mobileNavDrawer');
+      if (mobileBtn && mobileDrawer) {
+        mobileBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isOpen = mobileDrawer.classList.toggle('open');
+          mobileBtn.classList.toggle('open', isOpen);
+          mobileBtn.setAttribute('aria-expanded', isOpen);
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileDrawer.classList.remove('open');
+            mobileBtn.classList.remove('open');
+            mobileBtn.setAttribute('aria-expanded', 'false');
+          });
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!mobileDrawer.contains(e.target) && !mobileBtn.contains(e.target)) {
+            mobileDrawer.classList.remove('open');
+            mobileBtn.classList.remove('open');
+            mobileBtn.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            mobileDrawer.classList.remove('open');
+            mobileBtn.classList.remove('open');
+            mobileBtn.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      // FAQ Accordion Toggle
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const questionBtn = item.querySelector('.faq-question');
+        if (questionBtn) {
+          questionBtn.addEventListener('click', () => {
+            const isOpen = item.classList.contains('open');
+            // Close all others for accordion behavior
+            faqItems.forEach(el => el.classList.remove('open'));
+            if (!isOpen) {
+              item.classList.add('open');
+            }
+          });
+        }
+      });
+
+      // Smooth scrolling for hash links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if (targetId && targetId !== '#' && targetId.length > 1) {
+            try {
+              const targetElement = document.querySelector(targetId);
+              if (targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }
+            } catch (err) {
+              // Ignore invalid selector strings
+            }
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

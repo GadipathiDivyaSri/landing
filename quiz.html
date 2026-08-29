@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WrindhaOS Productivity Score & Self-Assessment</title>
+  <meta name="description" content="Calculate your 2-minute WrindhaOS Productivity Score. Discover your strengths, daily focus bottlenecks, and share your score with friends.">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/jpeg" href="Images/Image1.jpeg" />
+
+  <style>
+    :root {
+      --primary: #082F49;
+      --secondary: #0EA5E9;
+      --paper: #F8FAFC;
+      --card: #FFFFFF;
+      --accent: #E2E8F0;
+      --ink: #0F172A;
+      --muted: #64748B;
+      --success: #10B981;
+      --warning: #F59E0B;
+      --danger: #EF4444;
+      --mint: #E0F2FE;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      color: var(--ink);
+      background-color: var(--paper);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(920px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    /* ================= NAVBAR ================= */
+    .site-header {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+      box-shadow: 0 2px 14px -2px rgba(8, 47, 73, 0.06);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.03em;
+      color: var(--primary);
+    }
+
+    .brand-logo-img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      object-fit: contain;
+      display: block;
+      box-shadow: 0 2px 6px rgba(8, 47, 73, 0.1);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #FFFFFF;
+    }
+
+    .btn-primary:hover {
+      background: #0c4a6e;
+      transform: translateY(-1px);
+    }
+
+    .btn-accent {
+      background: var(--secondary);
+      color: #FFFFFF;
+    }
+
+    .btn-accent:hover {
+      background: #0284C7;
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: #FFFFFF;
+      color: var(--primary);
+      border: 1px solid var(--accent);
+    }
+
+    .btn-outline:hover {
+      background: #F1F5F9;
+      border-color: var(--muted);
+    }
+
+    /* ================= MAIN CONTENT ================= */
+    main {
+      flex: 1;
+      padding: 40px 0 60px;
+    }
+
+    .quiz-hero-card {
+      background: linear-gradient(135deg, #082F49 0%, #0C4A6E 60%, #0284C7 100%);
+      color: #FFFFFF;
+      padding: 36px 40px;
+      border-radius: 20px 20px 0 0;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(8, 47, 73, 0.15);
+    }
+
+    .quiz-hero-card::after {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(14, 165, 233, 0.25) 0%, rgba(255, 255, 255, 0) 70%);
+      top: -60px;
+      right: -60px;
+    }
+
+    .quiz-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #BAE6FD;
+      margin-bottom: 10px;
+    }
+
+    .quiz-hero-card h1 {
+      font-size: clamp(1.85rem, 4.2vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .quiz-hero-card p {
+      font-size: 1.02rem;
+      color: #E0F2FE;
+      max-width: 680px;
+    }
+
+    /* ================= FORM CARD ================= */
+    .quiz-form-card {
+      background: #FFFFFF;
+      border: 1px solid var(--accent);
+      border-top: none;
+      border-radius: 0 0 20px 20px;
+      padding: 36px 40px;
+      box-shadow: 0 16px 40px rgba(8, 47, 73, 0.06);
+    }
+
+    .form-section-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .form-section-title::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 18px;
+      background: var(--secondary);
+      border-radius: 2px;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .input-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .input-field label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .input-field label span {
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .input-field input {
+      padding: 12px 14px;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      font-family: inherit;
+      background: #F8FAFC;
+      color: var(--ink);
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .input-field input:focus {
+      border-color: var(--secondary);
+      background: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
+    }
+
+    /* INSTRUCTIONS CALLOUT */
+    .instructions-box {
+      background: #F0F9FF;
+      border: 1px solid #BAE6FD;
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
+      margin-bottom: 28px;
+    }
+
+    .instructions-box h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .instructions-box p {
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .scale-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .scale-legend span {
+      font-size: 0.76rem;
+      font-weight: 600;
+      background: #FFFFFF;
+      border: 1px solid #BAE6FD;
+      color: var(--primary);
+      padding: 4px 10px;
+      border-radius: 99px;
+    }
+
+    /* QUESTIONS */
+    .question-item {
+      padding: 18px 0;
+      border-top: 1px solid #F1F5F9;
+    }
+
+    .question-item:first-of-type {
+      border-top: none;
+    }
+
+    .question-text {
+      font-size: 0.96rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 12px;
+      line-height: 1.45;
+    }
+
+    .options-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+    }
+
+    .option-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--muted);
+      background: #F8FAFC;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-sm);
+      padding: 10px 6px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      user-select: none;
+    }
+
+    .option-label input {
+      display: none;
+    }
+
+    .option-label:hover {
+      border-color: var(--secondary);
+      background: #F0F9FF;
+      color: var(--primary);
+    }
+
+    .option-label.selected {
+      background: #082F49;
+      color: #FFFFFF;
+      border-color: #082F49;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(8, 47, 73, 0.15);
+    }
+
+    .submit-btn-wrap {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--accent);
+    }
+
+    .submit-quiz-btn {
+      width: 100%;
+      padding: 16px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      background: linear-gradient(135deg, #082F49 0%, #0EA5E9 100%);
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(8, 47, 73, 0.18);
+      transition: all 0.2s ease;
+    }
+
+    .submit-quiz-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(14, 165, 233, 0.3);
+    }
+
+    /* ================= RESULT CARD ================= */
+    .result-container {
+      display: none;
+      margin-top: 36px;
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    .result-container.show {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .score-badge-card {
+      background: #FFFFFF;
+      border: 1.5px solid var(--secondary);
+      border-radius: 20px;
+      padding: 36px;
+      box-shadow: 0 20px 50px rgba(14, 165, 233, 0.12);
+      margin-bottom: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .score-header-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 32px;
+      align-items: center;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--accent);
+    }
+
+    .score-circle-display {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #082F49 0%, #0EA5E9 100%);
+      color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(14, 165, 233, 0.25);
+      flex-shrink: 0;
+    }
+
+    .score-num {
+      font-size: 2.75rem;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .score-max {
+      font-size: 0.85rem;
+      color: #BAE6FD;
+      font-weight: 600;
+    }
+
+    .score-info h2 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+    }
+
+    .score-tier-tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: #F0F9FF;
+      color: #0284C7;
+      border: 1px solid #BAE6FD;
+      padding: 4px 12px;
+      border-radius: 99px;
+      margin-bottom: 10px;
+    }
+
+    .score-summary-text {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* BREAKDOWN PROGRESS BARS */
+    .breakdown-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 28px;
+      padding: 28px 0;
+    }
+
+    .cat-bar-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .cat-bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .cat-bar-track {
+      height: 10px;
+      background: #E2E8F0;
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .cat-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #082F49 0%, #0EA5E9 100%);
+      border-radius: 99px;
+      transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* ================= SHARE CARD ================= */
+    .share-action-card {
+      background: #F8FAFC;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-top: 24px;
+    }
+
+    .share-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .share-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .share-buttons-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+    }
+
+    .share-whatsapp {
+      background: #25D366;
+      color: #FFFFFF;
+    }
+    .share-whatsapp:hover {
+      background: #1EBE5D;
+      transform: translateY(-1px);
+    }
+
+    .share-x {
+      background: #0F172A;
+      color: #FFFFFF;
+    }
+    .share-x:hover {
+      background: #000000;
+      transform: translateY(-1px);
+    }
+
+    .share-copy {
+      background: #FFFFFF;
+      color: var(--primary);
+      border: 1px solid var(--accent);
+    }
+    .share-copy:hover {
+      background: #F1F5F9;
+      border-color: var(--secondary);
+    }
+
+    .share-native {
+      background: var(--secondary);
+      color: #FFFFFF;
+    }
+    .share-native:hover {
+      background: #0284C7;
+      transform: translateY(-1px);
+    }
+
+    /* ================= ACTIONABLE TIME MANAGEMENT INSIGHTS ================= */
+    .insights-section-card {
+      background: #FFFFFF;
+      border: 1px solid var(--accent);
+      border-radius: 20px;
+      padding: 32px 36px;
+      margin-top: 24px;
+      box-shadow: 0 10px 30px rgba(8, 47, 73, 0.05);
+    }
+
+    .insights-header {
+      margin-bottom: 24px;
+    }
+
+    .insights-header h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .insights-header p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .insights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .insight-box {
+      background: #F8FAFC;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+
+    .insight-box:hover {
+      border-color: var(--secondary);
+      background: #FFFFFF;
+      box-shadow: 0 6px 20px rgba(14, 165, 233, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .insight-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .insight-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: #E0F2FE;
+      color: #0369A1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .insight-top h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.3;
+    }
+
+    .insight-body {
+      font-size: 0.86rem;
+      color: var(--ink);
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }
+
+    .insight-tool-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #0369A1;
+      background: #F0F9FF;
+      border: 1px solid #BAE6FD;
+      padding: 5px 10px;
+      border-radius: 6px;
+      width: fit-content;
+    }
+
+    /* ================= INVITE FRIENDS SECTION ================= */
+    .invite-friends-card {
+      background: linear-gradient(135deg, #082F49 0%, #0C4A6E 100%);
+      color: #FFFFFF;
+      border-radius: 20px;
+      padding: 32px 36px;
+      box-shadow: 0 14px 36px rgba(8, 47, 73, 0.12);
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .invite-content h3 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+      color: #FFFFFF;
+    }
+
+    .invite-content p {
+      font-size: 0.95rem;
+      color: #BAE6FD;
+      line-height: 1.55;
+    }
+
+    .invite-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* TOAST NOTIFICATION */
+    .toast-msg {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #082F49;
+      color: #FFFFFF;
+      padding: 12px 20px;
+      border-radius: 99px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      display: none;
+      z-index: 1000;
+      border: 1px solid var(--secondary);
+      animation: popIn 0.3s ease;
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: var(--primary);
+      color: #94A3B8;
+      padding: 40px 0 24px;
+      font-size: 0.85rem;
+      margin-top: auto;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a:hover {
+      color: #FFFFFF;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 760px) {
+      .header-inner {
+        flex-direction: column;
+        height: auto;
+        padding: 14px 0;
+        gap: 12px;
+      }
+      .nav-links {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .nav-links a {
+        padding: 6px 10px;
+        font-size: 0.88rem;
+      }
+      .details-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .input-field {
+        font-size: 16px; /* Prevents auto-zoom on iOS */
+        padding: 12px 14px;
+      }
+      .options-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .option-label {
+        text-align: left;
+        justify-content: flex-start;
+        padding: 12px 16px;
+        min-height: 48px;
+      }
+      .score-header-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 20px;
+      }
+      .score-circle-display {
+        margin: 0 auto;
+      }
+      .breakdown-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .insights-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .insights-section-card {
+        padding: 24px 18px;
+      }
+      .invite-friends-card {
+        grid-template-columns: 1fr;
+        padding: 24px 18px;
+        gap: 18px;
+      }
+      .share-buttons-row {
+        flex-direction: column;
+      }
+      .share-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 16px;
+      }
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 14px;
+      }
+      .footer-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .quiz-card {
+        padding: 24px 16px;
+      }
+      .question-title {
+        font-size: 1.15rem;
+      }
+      .quiz-nav-btns {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .quiz-nav-btns .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="WrindhaOS Home">
+        <img src="Images/Image1.jpeg" alt="WrindhaOS Logo" class="brand-logo-img" />
+        <span>WrindhaOS</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="quiz.html" class="active">Self Assessment</a>
+        <a href="contact.html">Contact</a>
+        <a href="join.html" class="btn btn-primary" style="padding:7px 16px; font-size:0.84rem;">Join Waitlist</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main>
+    <div class="container">
+      
+      <!-- HERO HEADER -->
+      <div class="quiz-hero-card">
+        <div class="quiz-eyebrow">
+          <span>⚡</span> 2-Min Self Assessment
+        </div>
+        <h1>Discover Your WrindhaOS Productivity Score</h1>
+        <p>
+          Diagnose your daily focus, time mastery, habit consistency, and goal clarity bottlenecks. Rate 12 quick statements to calculate your official score.
+        </p>
+      </div>
+
+      <!-- FORM -->
+      <form id="assessmentForm" class="quiz-form-card">
+        
+        <!-- Personal Details -->
+        <div class="form-section-title">Your Details</div>
+        <div class="details-grid">
+          <div class="input-field">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="e.g. Rahul Sharma" required />
+          </div>
+          <div class="input-field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="e.g. rahul@example.com" required />
+          </div>
+          <div class="input-field">
+            <label for="location">City / Location</label>
+            <input type="text" id="location" placeholder="e.g. Hyderabad, India" required />
+          </div>
+          <div class="input-field">
+            <label for="phone">Phone Number <span>(Optional)</span></label>
+            <input type="tel" id="phone" placeholder="e.g. +91 9876543210" />
+          </div>
+        </div>
+
+        <!-- Instructions -->
+        <div class="instructions-box">
+          <h3>Self-Assessment Rating Guide</h3>
+          <p>
+            Rate how accurately each statement describes your daily routines on a 1 to 5 scale:
+          </p>
+          <div class="scale-legend">
+            <span>1 = Strongly Disagree</span>
+            <span>2 = Disagree</span>
+            <span>3 = Neutral</span>
+            <span>4 = Agree</span>
+            <span>5 = Strongly Agree</span>
+          </div>
+        </div>
+
+        <!-- 12 Questions -->
+        <div class="form-section-title">12 Diagnostic Questions</div>
+
+        <div id="questionsContainer">
+          <!-- Rendered dynamically or via semantic questions -->
+        </div>
+
+        <!-- Submit CTA -->
+        <div class="submit-btn-wrap">
+          <button type="submit" id="submitBtn" class="submit-quiz-btn">
+            Calculate My WrindhaOS Score →
+          </button>
+        </div>
+      </form>
+
+      <!-- RESULTS SECTION -->
+      <div id="resultCard" class="result-container">
+        
+        <!-- SCORE DISPLAY -->
+        <div class="score-badge-card">
+          <div class="score-header-grid">
+            <div class="score-circle-display">
+              <span id="overallScoreNum" class="score-num">84</span>
+              <span class="score-max">/ 100</span>
+            </div>
+            <div class="score-info">
+              <div id="scoreTier" class="score-tier-tag">Disciplined Achiever</div>
+              <h2 id="scoreHeading">Your WrindhaOS Score: 84/100</h2>
+              <p id="scoreSummary" class="score-summary-text">
+                You have strong goal clarity and daily focus, but habit consistency and time allocation are currently limiting your peak execution.
+              </p>
+            </div>
+          </div>
+
+          <!-- Category Progress Bars -->
+          <div class="breakdown-grid" id="categoryBars">
+            <!-- Filled via JS -->
+          </div>
+
+          <!-- SHARE YOUR SCORE SECTION -->
+          <div class="share-action-card">
+            <div class="share-title">
+              <span>📤</span> Share Your WrindhaOS Score With Friends
+            </div>
+            <div class="share-desc">
+              Show your focus score, compare daily habits with friends, and celebrate productivity milestones!
+            </div>
+            <div class="share-buttons-row">
+              <button type="button" class="share-btn share-whatsapp" id="shareWhatsAppBtn">
+                <span>💬</span> Share on WhatsApp
+              </button>
+              <button type="button" class="share-btn share-x" id="shareXBtn">
+                <span>𝕏</span> Share on X
+              </button>
+              <button type="button" class="share-btn share-copy" id="copyScoreBtn">
+                <span>📋</span> Copy Score & Link
+              </button>
+              <button type="button" class="share-btn share-native" id="nativeShareBtn">
+                <span>📲</span> Share Score
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACTIONABLE TIME MANAGEMENT & TOOL INSIGHTS -->
+        <div class="insights-section-card">
+          <div class="insights-header">
+            <h3><span>💡</span> Practical Insights for Effective Time Management</h3>
+            <p>
+              Based on your assessment, here is how you can use WrindhaOS and proven time management frameworks to eliminate friction and maximize daily high-leverage output:
+            </p>
+          </div>
+          
+          <div class="insights-grid" id="insightsContainer">
+            <!-- Dynamically populated or customized based on score -->
+          </div>
+        </div>
+
+        <!-- INVITE FRIENDS / STUDY BUDDIES SECTION -->
+        <div class="invite-friends-card">
+          <div class="invite-content">
+            <div class="quiz-eyebrow" style="color:#7DD3FC; margin-bottom:4px;">👥 Study Buddy Challenge</div>
+            <h3>Invite Friends to Take the Self Assessment</h3>
+            <p>
+              Productivity is better together. Challenge your friends, peers, and study groups to take this 2-minute check-in and find out who has the highest WrindhaOS focus score!
+            </p>
+          </div>
+          <div class="invite-actions">
+            <button type="button" class="btn btn-accent" id="inviteWhatsAppBtn" style="width:100%; font-size:0.92rem; padding:12px;">
+              <span>💬</span> Invite via WhatsApp
+            </button>
+            <button type="button" class="btn btn-outline" id="copyInviteLinkBtn" style="width:100%; font-size:0.92rem; padding:12px;">
+              <span>🔗</span> Copy Invite Link
+            </button>
+          </div>
+        </div>
+
+        <!-- EXPLORE WRINDHAOS CTA -->
+        <div style="text-align:center; margin-top:36px; padding:28px 20px; background:#FFFFFF; border:1px solid var(--accent); border-radius:16px;">
+          <h3 style="font-size:1.3rem; color:var(--primary); margin-bottom:8px;">Ready to elevate your daily score?</h3>
+          <p style="color:var(--muted); max-width:560px; margin:0 auto 18px; font-size:0.95rem;">
+            WrindhaOS brings your priorities, focus timers, habit loops, and syllabus tracking into one private organising system.
+          </p>
+          <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+            <a href="join.html" class="btn btn-primary">Join the Waitlist →</a>
+            <a href="index.html" class="btn btn-outline">Explore System Features</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- TOAST FEEDBACK -->
+  <div id="toast" class="toast-msg">Copied to clipboard!</div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2026 WrindhaOS. All rights reserved. Built for passionate people.</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="quiz.html">Self Assessment</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 12 Diagnostic Questions Definition
+    const questionsData = [
+      { id: 1, text: "1. I can stay focused on an important task without getting distracted easily." },
+      { id: 2, text: "2. I can concentrate for extended study or work blocks before checking my phone or social media." },
+      { id: 3, text: "3. I usually plan how I will spend my day before starting it." },
+      { id: 4, text: "4. I complete high-priority tasks on time instead of postponing them." },
+      { id: 5, text: "5. I often feel that there are not enough hours in my day to finish what I need to." },
+      { id: 6, text: "6. I frequently feel overwhelmed by my studies, work, or daily responsibilities." },
+      { id: 7, text: "7. I can maintain my routine even when I don't feel motivated." },
+      { id: 8, text: "8. I regularly follow through on the daily habits I decide to build." },
+      { id: 9, text: "9. I have clear short-term and long-term goals for what I want to achieve." },
+      { id: 10, text: "10. When I have a lot to do, I know which tasks and goals are most important right now." },
+      { id: 11, text: "11. When something disrupts my plans, I can reorganize my routine and keep going." },
+      { id: 12, text: "12. Overall, I feel in control of how I manage my time, goals, habits, and responsibilities." }
+    ];
+
+    const optionsLabels = [
+      "1 - Strongly Disagree",
+      "2 - Disagree",
+      "3 - Neutral",
+      "4 - Agree",
+      "5 - Strongly Agree"
+    ];
+
+    // Render Questions dynamically
+    const questionsContainer = document.getElementById("questionsContainer");
+    questionsData.forEach(q => {
+      const qDiv = document.createElement("div");
+      qDiv.className = "question-item";
+      
+      let optionsHTML = "";
+      for (let val = 1; val <= 5; val++) {
+        optionsHTML += `
+          <label class="option-label" data-q="${q.id}" data-val="${val}">
+            <input type="radio" name="q${q.id}" value="${val}" required />
+            ${optionsLabels[val - 1]}
+          </label>
+        `;
+      }
+
+      qDiv.innerHTML = `
+        <div class="question-text">${q.text}</div>
+        <div class="options-row">${optionsHTML}</div>
+      `;
+      questionsContainer.appendChild(qDiv);
+    });
+
+    // Custom Radio Click Highlight
+    document.querySelectorAll(".option-label").forEach(label => {
+      label.addEventListener("click", function() {
+        const qId = this.getAttribute("data-q");
+        document.querySelectorAll(`.option-label[data-q="${qId}"]`).forEach(l => l.classList.remove("selected"));
+        this.classList.add("selected");
+        const radio = this.querySelector("input[type=radio]");
+        if (radio) radio.checked = true;
+      });
+    });
+
+    // Core Assessment Categories (All 12 questions mapped 2-per-category)
+    const reverseQuestions = new Set([5, 6]);
+    const categories = {
+      'Focus & Deep Work': { questions: [1, 2], icon: '🎯' },
+      'Time Management & Planning': { questions: [3, 4], icon: '⏳' },
+      'Stress & Workload Resilience': { questions: [5, 6], icon: '🛡️' },
+      'Habit Consistency': { questions: [7, 8], icon: '🔄' },
+      'Goal Clarity & Direction': { questions: [9, 10], icon: '🧭' },
+      'Self-Management & Review': { questions: [11, 12], icon: '📊' }
+    };
+
+    // Calculate raw question score (1 to 5, inverted for reverse questions)
+    function getQuestionValue(qNum, form) {
+      const input = form.querySelector(`input[name="q${qNum}"]:checked`);
+      const raw = input ? Number(input.value) : 3;
+      return reverseQuestions.has(qNum) ? (6 - raw) : raw;
+    }
+
+    let calculatedScore = 0;
+    let calculatedTier = "Disciplined Achiever";
+
+    const form = document.getElementById("assessmentForm");
+    const resultCard = document.getElementById("resultCard");
+    const submitBtn = document.getElementById("submitBtn");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const locationVal = document.getElementById("location").value.trim();
+
+      if (!name || !email || !locationVal) {
+        showToast("Please fill in your name, email, and location.");
+        return;
+      }
+
+      // Check all 12 answered
+      for (let i = 1; i <= 12; i++) {
+        if (!form.querySelector(`input[name="q${i}"]:checked`)) {
+          showToast(`Please answer question #${i}`);
+          const qEl = document.querySelectorAll(".question-item")[i - 1];
+          if (qEl) qEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+      }
+
+      // Calculate category raw scores and percentages
+      let totalRawSum = 0;
+      const catScores = {};
+
+      Object.entries(categories).forEach(([catName, catData]) => {
+        let catSum = 0;
+        catData.questions.forEach(qId => {
+          const val = getQuestionValue(qId, form);
+          catSum += val;
+          totalRawSum += val;
+        });
+        const maxCatScore = catData.questions.length * 5; // 2 questions * 5 = 10 max points
+        const pct = Math.round((catSum / maxCatScore) * 100);
+        catScores[catName] = { score: pct, icon: catData.icon };
+      });
+
+      // Overall Score: 12 questions * 5 max = 60 total points. Scaled directly to 100.
+      calculatedScore = Math.round((totalRawSum / 60) * 100);
+
+      // Determine Performance Tier
+      let tierAdvice = "";
+      if (calculatedScore >= 85) {
+        calculatedTier = "Elite Focus Master";
+        tierAdvice = "You have exceptional discipline, clear goals, and high daily execution velocity. WrindhaOS will help you maintain this standard with seamless deep work tracking and zero cognitive load.";
+      } else if (calculatedScore >= 70) {
+        calculatedTier = "Disciplined Achiever";
+        tierAdvice = "You have a reliable focus routine and good goal awareness. Resolving occasional distraction leaks and refining habit loops will push you into peak productivity.";
+      } else if (calculatedScore >= 50) {
+        calculatedTier = "Developing Momentum";
+        tierAdvice = "You experience sporadic bursts of high output, but fragmented planning and daily friction are holding back your true potential.";
+      } else {
+        calculatedTier = "High Friction / Overwhelmed";
+        tierAdvice = "Daily multitasking and lack of structural planning are causing severe cognitive fatigue. Adopting a unified organising system will help you regain total control.";
+      }
+
+      // Identify highest strength and biggest growth area
+      const sortedCats = Object.entries(catScores).sort((a, b) => b[1].score - a[1].score);
+      const strongest = sortedCats[0];
+      const lowest = sortedCats[sortedCats.length - 1];
+
+      // Update UI Header & Scores
+      document.getElementById("overallScoreNum").textContent = calculatedScore;
+      document.getElementById("scoreTier").textContent = calculatedTier;
+      document.getElementById("scoreHeading").textContent = `${name}'s WrindhaOS Score: ${calculatedScore}/100`;
+      document.getElementById("scoreSummary").textContent = 
+        `Top Strength: ${strongest[0]} (${strongest[1].score}%). Primary Growth Area: ${lowest[0]} (${lowest[1].score}%). ${tierAdvice}`;
+
+      // Render Category Progress Bars
+      const barsContainer = document.getElementById("categoryBars");
+      barsContainer.innerHTML = Object.entries(catScores).map(([cat, data]) => `
+        <div class="cat-bar-item">
+          <div class="cat-bar-label">
+            <span>${data.icon} ${cat}</span>
+            <span>${data.score}%</span>
+          </div>
+          <div class="cat-bar-track">
+            <div class="cat-bar-fill" style="width: ${data.score}%;"></div>
+          </div>
+        </div>
+      `).join("");
+
+      // Actionable Time Management Insights & Tool Strategies
+      const insightsMap = {
+        'Focus & Deep Work': {
+          title: "Implement Timeblocking & Focus Blocks",
+          icon: "⏱️",
+          toolTip: "WrindhaOS Deep Work Focus Timer",
+          desc: "Multi-tasking fragments attention. Schedule dedicated 50-minute deep work blocks in advance and eliminate phone notifications during prime focus intervals."
+        },
+        'Time Management & Planning': {
+          title: "Master Q1/Q2 Priority Sorting",
+          icon: "🎯",
+          toolTip: "WrindhaOS Eisenhower Matrix",
+          desc: "Prevent urgent busywork from displacing high-impact goals. Allocate your top 3 daily priorities each morning before opening messages or social feeds."
+        },
+        'Stress & Workload Resilience': {
+          title: "Syllabus Breakdown & De-Risking",
+          icon: "🛡️",
+          toolTip: "WrindhaOS Syllabus Progress Tracker",
+          desc: "Overwhelm occurs when workloads lack visible milestones. Break multi-week projects into granular 20-minute daily micro-milestones to build steady momentum."
+        },
+        'Habit Consistency': {
+          title: "Habit Stacking & Micro-Loops",
+          icon: "🔄",
+          toolTip: "WrindhaOS Habit & Routine Engine",
+          desc: "Tie new study or health habits directly to existing daily triggers (e.g. 'After morning tea, 30 min revision') to remove reliance on unpredictable willpower."
+        },
+        'Goal Clarity & Direction': {
+          title: "Weekly Directional Calibration",
+          icon: "🧭",
+          toolTip: "WrindhaOS Goal Roadmap Hub",
+          desc: "Ensure every daily task maps directly to an active exam or career goal. Review active milestones weekly to prune non-essential commitments."
+        },
+        'Self-Management & Review': {
+          title: "Daily Friction & Win Logging",
+          icon: "📊",
+          toolTip: "WrindhaOS Daily Log & Notes",
+          desc: "Spend 3 minutes at the end of each day reviewing completed focus hours and identifying what caused delays. Consistent self-correction outperforms rigid scheduling."
+        }
+      };
+
+      // Populate Insights Grid prioritizing lowest 4 scoring categories
+      const sortedByLowest = Object.entries(catScores).sort((a, b) => a[1].score - b[1].score);
+      const topInsights = sortedByLowest.slice(0, 4);
+      
+      const insightsContainer = document.getElementById("insightsContainer");
+      insightsContainer.innerHTML = topInsights.map(([catName, catData]) => {
+        const item = insightsMap[catName];
+        return `
+          <div class="insight-box">
+            <div>
+              <div class="insight-top">
+                <div class="insight-icon">${item.icon}</div>
+                <h4>${item.title}</h4>
+              </div>
+              <p class="insight-body">${item.desc}</p>
+            </div>
+            <div class="insight-tool-tag">
+              <span>🛠️ Tool:</span> ${item.toolTip}
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      // Show Result Card & Smooth Scroll
+      resultCard.classList.add("show");
+      resultCard.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    // Share & Invite Handlers
+    function getQuizURL() {
+      return window.location.href.split('#')[0];
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById("toast");
+      toast.textContent = msg;
+      toast.style.display = "block";
+      setTimeout(() => {
+        toast.style.display = "none";
+      }, 3000);
+    }
+
+    // Share on WhatsApp
+    const shareWhatsAppBtn = document.getElementById("shareWhatsAppBtn");
+    if (shareWhatsAppBtn) {
+      shareWhatsAppBtn.addEventListener("click", () => {
+        const text = `🎯 I scored ${calculatedScore}/100 ("${calculatedTier}") on the WrindhaOS Productivity Self-Assessment! 🚀\n\nFind out your focus score & daily bottlenecks here:\n${getQuizURL()}`;
+        window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, "_blank");
+      });
+    }
+
+    // Share on X
+    const shareXBtn = document.getElementById("shareXBtn");
+    if (shareXBtn) {
+      shareXBtn.addEventListener("click", () => {
+        const text = `🎯 I just got a WrindhaOS Productivity Score of ${calculatedScore}/100 (${calculatedTier})! Check your focus, habits, and daily execution score here:`;
+        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(getQuizURL())}`, "_blank");
+      });
+    }
+
+    // Copy Score Summary
+    const copyScoreBtn = document.getElementById("copyScoreBtn");
+    if (copyScoreBtn) {
+      copyScoreBtn.addEventListener("click", () => {
+        const text = `🎯 My WrindhaOS Productivity Score: ${calculatedScore}/100 (${calculatedTier})\nCheck your focus bottlenecks and take the 2-minute assessment: ${getQuizURL()}`;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(() => {
+            showToast("Score and link copied to clipboard!");
+          }).catch(() => {
+            showToast("Unable to copy to clipboard.");
+          });
+        } else {
+          showToast("Score copied!");
+        }
+      });
+    }
+
+    // Native Share API
+    const nativeShareBtn = document.getElementById("nativeShareBtn");
+    if (nativeShareBtn) {
+      nativeShareBtn.addEventListener("click", () => {
+        if (navigator.share) {
+          navigator.share({
+            title: "My WrindhaOS Score",
+            text: `🎯 I scored ${calculatedScore}/100 (${calculatedTier}) on the WrindhaOS Self-Assessment! Test your focus score:`,
+            url: getQuizURL()
+          }).catch(() => {});
+        } else if (copyScoreBtn) {
+          copyScoreBtn.click();
+        }
+      });
+    }
+
+    // Invite via WhatsApp
+    const inviteWhatsAppBtn = document.getElementById("inviteWhatsAppBtn");
+    if (inviteWhatsAppBtn) {
+      inviteWhatsAppBtn.addEventListener("click", () => {
+        const text = `Hey! 👋 Take this quick 2-minute WrindhaOS Self-Assessment to find your productivity score & study habits breakdown:\n${getQuizURL()}`;
+        window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, "_blank");
+      });
+    }
+
+    // Copy Invite Link
+    const copyInviteLinkBtn = document.getElementById("copyInviteLinkBtn");
+    if (copyInviteLinkBtn) {
+      copyInviteLinkBtn.addEventListener("click", () => {
+        const inviteMsg = `Hey! Check out your daily productivity and focus score on the WrindhaOS Self Assessment: ${getQuizURL()}`;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(inviteMsg).then(() => {
+            showToast("Invite message & link copied to clipboard!");
+          }).catch(() => {
+            showToast("Unable to copy to clipboard.");
+          });
+        } else {
+          showToast("Link copied!");
+        }
+      });
+    }
+  </script>
+</body>
+</html>

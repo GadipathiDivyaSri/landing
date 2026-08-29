@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="WrindhaOS Terms & Conditions. Read the binding legal agreement governing your use of the WrindhaOS application and services.">
+  <title>Terms &amp; Conditions | WrindhaOS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/jpeg" href="Images/Image1.jpeg" />
+
+  <style>
+    :root {
+      --primary: #082F49;
+      --secondary: #0EA5E9;
+      --paper: #F8FAFC;
+      --card: #FFFFFF;
+      --accent: #E2E8F0;
+      --ink: #0F172A;
+      --muted: #64748B;
+      --success: #10B981;
+      --mint: #E0F2FE;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--ink);
+      background-color: var(--paper);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    /* ================= NAVBAR ================= */
+    .site-header {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+      box-shadow: 0 2px 14px -2px rgba(8, 47, 73, 0.06);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.03em;
+      color: var(--primary);
+    }
+
+    .brand-logo-img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      object-fit: contain;
+      display: block;
+      box-shadow: 0 2px 6px rgba(8, 47, 73, 0.1);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #FFFFFF;
+    }
+
+    .btn-primary:hover {
+      background: #0c4a6e;
+      transform: translateY(-1px);
+    }
+
+    /* ================= MAIN LAYOUT ================= */
+    main {
+      flex: 1;
+      padding: 48px 0 80px;
+    }
+
+    .terms-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* ================= STICKY SIDEBAR ================= */
+    .terms-toc {
+      position: sticky;
+      top: 100px;
+      background: #FFFFFF;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      box-shadow: 0 4px 16px rgba(8, 47, 73, 0.03);
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+    }
+
+    .toc-title {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--secondary);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .toc-list a {
+      font-size: 0.84rem;
+      color: #475569;
+      padding: 5px 8px;
+      border-radius: 6px;
+      display: block;
+      transition: all 0.15s ease;
+      line-height: 1.35;
+    }
+
+    .toc-list a:hover {
+      background: #F0F9FF;
+      color: #0284C7;
+      font-weight: 600;
+    }
+
+    /* ================= DOCUMENT BODY ================= */
+    .doc-article {
+      background: #FFFFFF;
+      border: 1px solid var(--accent);
+      border-radius: 20px;
+      padding: 48px 52px;
+      box-shadow: 0 10px 30px rgba(8, 47, 73, 0.04);
+    }
+
+    .doc-hero {
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 32px;
+      margin-bottom: 36px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--secondary);
+      background: #F0F9FF;
+      padding: 4px 12px;
+      border-radius: 99px;
+      border: 1px solid #BAE6FD;
+      margin-bottom: 14px;
+    }
+
+    .doc-hero h1 {
+      font-size: clamp(2rem, 3.2vw, 2.7rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.2;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+
+    .doc-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 24px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .doc-meta span strong {
+      color: var(--ink);
+    }
+
+    /* SUMMARY BANNER */
+    .summary-banner {
+      background: #F8FAFC;
+      border-left: 4px solid var(--secondary);
+      padding: 20px 24px;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin-bottom: 36px;
+      font-size: 0.95rem;
+      color: #334155;
+    }
+
+    /* SECTIONS */
+    .doc-section {
+      margin-bottom: 40px;
+      scroll-margin-top: 100px;
+    }
+
+    .doc-section h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .doc-section h3 {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 18px 0 8px;
+    }
+
+    .doc-section p {
+      font-size: 0.98rem;
+      color: #334155;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .doc-section ul {
+      margin: 10px 0 16px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .doc-section li {
+      font-size: 0.95rem;
+      color: #334155;
+      line-height: 1.6;
+    }
+
+    .doc-section li strong {
+      color: var(--primary);
+    }
+
+    .highlight-box {
+      background: #F0F9FF;
+      border: 1px solid #BAE6FD;
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
+      margin: 16px 0;
+      font-size: 0.94rem;
+      color: #0369A1;
+    }
+
+    .disclaimer-box {
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
+      margin: 16px 0;
+      font-size: 0.94rem;
+      color: #92400E;
+    }
+
+    .code-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.88rem;
+      background: #E2E8F0;
+      color: #0F172A;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: #FFFFFF;
+      border-top: 1px solid var(--accent);
+      padding: 24px 0;
+      font-size: 0.88rem;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 960px) {
+      .terms-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .terms-toc {
+        position: static;
+        max-height: none;
+      }
+      .doc-article {
+        padding: 32px 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-inner {
+        flex-direction: column;
+        height: auto;
+        padding: 14px 0;
+        gap: 12px;
+      }
+      .nav-links {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="WrindhaOS Home">
+        <img src="Images/Image1.jpeg" alt="WrindhaOS Logo" class="brand-logo-img" />
+        <span>WrindhaOS</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="quiz.html">Self Assessment</a>
+        <a href="contact.html">Contact</a>
+        <a href="terms.html" class="active">Terms &amp; Conditions</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="container">
+      <div class="terms-layout">
+
+        <!-- STICKY SIDEBAR -->
+        <aside class="terms-toc" aria-label="Table of Contents">
+          <div class="toc-title">
+            <span>📑</span> Terms Navigation
+          </div>
+          <nav class="toc-list">
+            <a href="#sec-1">1. Acceptance of Terms</a>
+            <a href="#sec-2">2. Eligibility</a>
+            <a href="#sec-3">3. Your Account</a>
+            <a href="#sec-4">4. The Service</a>
+            <a href="#sec-5">5. Free Tier &amp; Usage Limits</a>
+            <a href="#sec-6">6. Subscriptions &amp; Payment</a>
+            <a href="#sec-7">7. Your Content</a>
+            <a href="#sec-8">8. Acceptable Use</a>
+            <a href="#sec-9">9. Disclaimers</a>
+            <a href="#sec-10">10. Limitation of Liability</a>
+            <a href="#sec-11">11. Termination</a>
+            <a href="#sec-12">12. Force Majeure</a>
+            <a href="#sec-13">13. Dispute Resolution</a>
+            <a href="#sec-14">14. Governing Law &amp; Jurisdiction</a>
+            <a href="#sec-15">15. Changes to These Terms</a>
+            <a href="#sec-16">16. Contact</a>
+          </nav>
+        </aside>
+
+        <!-- DOCUMENT CONTENT -->
+        <article class="doc-article">
+
+          <!-- HERO -->
+          <div class="doc-hero">
+            <div class="eyebrow">User Agreement</div>
+            <h1>TERMS &amp; CONDITIONS</h1>
+            <div class="doc-meta">
+              <span>Applies to: <strong>WrindhaOS App &amp; wrindhaos.in</strong></span>
+              <span>Jurisdiction: <strong>Chittoor, Andhra Pradesh, India</strong></span>
+              <span>Contact: <strong>wrindhaos@gmail.com</strong></span>
+            </div>
+          </div>
+
+          <div class="summary-banner">
+            Please read these Terms &amp; Conditions carefully before creating an account or using WrindhaOS. These terms govern your rights and obligations when using our study-management and productivity application.
+          </div>
+
+          <!-- 1. ACCEPTANCE OF TERMS -->
+          <section class="doc-section" id="sec-1">
+            <h2>1. Acceptance of Terms</h2>
+            <p>
+              These Terms &amp; Conditions ("Terms") form a binding agreement between you and <strong>WrindhaOS</strong> governing your use of the WrindhaOS mobile application and <code>wrindhaos.in</code> (together, the "Service").
+            </p>
+            <p>
+              By creating an account or using the Service, you agree to these Terms, our <a href="privacy.html" style="color:var(--secondary); font-weight:700; text-decoration:underline;">Privacy Policy</a>, and our other published policies. If you do not agree, do not use the Service.
+            </p>
+          </section>
+
+          <!-- 2. ELIGIBILITY -->
+          <section class="doc-section" id="sec-2">
+            <h2>2. Eligibility</h2>
+            <p>
+              The Service is intended for students preparing for competitive examinations. If you are under 18 years of age, you may use the Service only with the consent and involvement of a parent or legal guardian, who agrees to be bound by these Terms on your behalf.
+            </p>
+          </section>
+
+          <!-- 3. YOUR ACCOUNT -->
+          <section class="doc-section" id="sec-3">
+            <h2>3. Your Account</h2>
+            <ul>
+              <li>You must provide accurate information (email and/or phone number) to create an account and complete OTP verification.</li>
+              <li>You are responsible for maintaining the confidentiality of your account credentials and for all activity under your account.</li>
+              <li>You must notify us promptly at <a href="mailto:wrindhaos@gmail.com" class="code-tag">wrindhaos@gmail.com</a> of any unauthorized use of your account.</li>
+            </ul>
+          </section>
+
+          <!-- 4. THE SERVICE -->
+          <section class="doc-section" id="sec-4">
+            <h2>4. The Service</h2>
+            <p>
+              WrindhaOS provides productivity tools including habit tracking, to-dos, an Eisenhower/priority matrix, goals and milestones, a subject/topic academic tracker, a calendar and timetable, a focus timer, a private journal, and personal expense tracking. Features available to you depend on whether you are on the Free plan or a paid Premium plan (see Section 6 and our <a href="subscription.html" style="color:var(--secondary); font-weight:700; text-decoration:underline;">Subscription Policy</a>).
+            </p>
+            <p>
+              We may add, modify, or discontinue features at our discretion, and will provide reasonable notice for material changes that reduce Premium functionality you are actively paying for.
+            </p>
+          </section>
+
+          <!-- 5. FREE TIER AND USAGE LIMITS -->
+          <section class="doc-section" id="sec-5">
+            <h2>5. Free Tier and Usage Limits</h2>
+            <p>
+              The Free plan provides core functionality with certain usage limits (for example, a maximum number of active habits and subjects), as displayed in-app. These limits may change from time to time; current limits are always shown in the app's plan comparison screen.
+            </p>
+          </section>
+
+          <!-- 6. SUBSCRIPTIONS AND PAYMENT -->
+          <section class="doc-section" id="sec-6">
+            <h2>6. Subscriptions and Payment</h2>
+            <p>
+              Premium plans are billed and processed entirely through <strong>Google Play Billing</strong>. We do not collect or store your payment card, UPI, or bank account details.
+            </p>
+            <p>
+              Pricing, billing cycles, auto-renewal, and cancellation are governed by Google Play's terms in addition to our <a href="subscription.html" style="color:var(--secondary); font-weight:700; text-decoration:underline;">Subscription Policy</a> and <a href="refund.html" style="color:var(--secondary); font-weight:700; text-decoration:underline;">Refund &amp; Cancellation Policy</a>, both incorporated by reference.
+            </p>
+          </section>
+
+          <!-- 7. YOUR CONTENT -->
+          <section class="doc-section" id="sec-7">
+            <h2>7. Your Content</h2>
+            <p>
+              Content you create in the Service — journal entries, notes, goals, tasks, and similar material ("User Content") — remains yours. You grant us a limited, non-exclusive licence to store, process, and display your User Content solely to operate and provide the Service to you. See our <a href="data.html" style="color:var(--secondary); font-weight:700; text-decoration:underline;">Security &amp; Data Protection Statement</a> for details, including how journal content is encrypted.
+            </p>
+          </section>
+
+          <!-- 8. ACCEPTABLE USE -->
+          <section class="doc-section" id="sec-8">
+            <h2>8. Acceptable Use</h2>
+            <p>
+              You agree to use the Service lawfully and in accordance with our Acceptable Use Policy. We may suspend or terminate accounts that violate these Terms, subject to the notice and review process described in that policy.
+            </p>
+          </section>
+
+          <!-- 9. DISCLAIMERS -->
+          <section class="doc-section" id="sec-9">
+            <h2>9. Disclaimers</h2>
+            <div class="disclaimer-box">
+              WrindhaOS is a productivity and organisational tool. It is not exam-preparation content, a coaching service, or a guarantee of examination results, and it is not a medical, financial, or professional advisory service. See our full <a href="disclaimer.html" style="font-weight:700; text-decoration:underline;">Disclaimer</a>.
+            </div>
+          </section>
+
+          <!-- 10. LIMITATION OF LIABILITY -->
+          <section class="doc-section" id="sec-10">
+            <h2>10. Limitation of Liability</h2>
+            <p>
+              To the maximum extent permitted by applicable law, WrindhaOS team (and its operating entity) shall not be liable for indirect, incidental, special, or consequential damages arising from your use of, or inability to use, the Service, including loss of data, loss of study progress, or exam outcomes.
+            </p>
+            <p>
+              Our aggregate liability for any claim relating to the Service shall not exceed the amount you paid us, if any, in the twelve (12) months preceding the claim.
+            </p>
+          </section>
+
+          <!-- 11. TERMINATION -->
+          <section class="doc-section" id="sec-11">
+            <h2>11. Termination</h2>
+            <p>
+              You may stop using the Service and request account deletion at any time (see our <a href="account.html" style="color:var(--secondary); font-weight:700; text-decoration:underline;">Account Deletion Policy</a>). We may suspend or terminate your access for violation of these Terms, non-payment of applicable subscription fees, or as required by law.
+            </p>
+          </section>
+
+          <!-- 12. FORCE MAJEURE -->
+          <section class="doc-section" id="sec-12">
+            <h2>12. Force Majeure</h2>
+            <p>
+              We will not be liable for any failure or delay in performing our obligations under these Terms where the failure or delay results from causes beyond our reasonable control, including but not limited to acts of God, natural disaster, fire, flood, war, civil unrest, labour disputes not involving our employees, government action, internet or telecommunications failures, power outages, or failures of third-party infrastructure we rely on (including Supabase or Google Play).
+            </p>
+            <p>
+              During such an event, our obligations under these Terms will be suspended for the duration of the event, and we will make reasonable efforts to resume normal service as soon as practicable. This clause does not excuse payment obligations already due, nor does it affect refund rights you may have under our <a href="refund.html" style="color:var(--secondary); font-weight:700; text-decoration:underline;">Refund &amp; Cancellation Policy</a>.
+            </p>
+          </section>
+
+          <!-- 13. DISPUTE RESOLUTION -->
+          <section class="doc-section" id="sec-13">
+            <h2>13. Dispute Resolution</h2>
+            
+            <h3>13.1 Informal Resolution First</h3>
+            <p>
+              If a dispute arises out of or relating to these Terms or the Service, you agree to first contact us at <a href="mailto:wrindhaos@gmail.com" class="code-tag">wrindhaos@gmail.com</a> (or, for grievances, our Grievance Officer per the Grievance Redressal Policy) and give us a reasonable opportunity — at least 30 days — to resolve the matter informally before pursuing formal proceedings.
+            </p>
+
+            <h3>13.2 Arbitration</h3>
+            <p>
+              If a dispute is not resolved informally within 30 days, either party may refer it to binding arbitration under the <strong>Arbitration and Conciliation Act, 1996 (as amended)</strong>. The arbitration will be conducted by a sole arbitrator appointed by mutual agreement of the parties, or, failing agreement within 15 days, in accordance with the Act's default appointment procedure.
+            </p>
+            <div class="highlight-box">
+              <strong>Arbitration Details:</strong> The seat and venue of arbitration shall be <strong>Chittoor, Andhra Pradesh, India</strong>, the language of the arbitration shall be English, and the arbitrator's award shall be final and binding on both parties, subject to any right of challenge available under the Act.
+            </div>
+
+            <h3>13.3 Exceptions</h3>
+            <p>
+              Nothing in this Section 13 prevents either party from seeking urgent interim or injunctive relief from a court of competent jurisdiction where necessary to prevent immediate harm (for example, to stop unauthorised use of our intellectual property or ongoing misuse of the Service), or from exercising statutory rights that cannot be waived by agreement, including your right to approach a consumer forum under the <strong>Consumer Protection Act, 2019</strong>, or to raise a grievance under our Grievance Redressal Policy.
+            </p>
+          </section>
+
+          <!-- 14. GOVERNING LAW AND JURISDICTION -->
+          <section class="doc-section" id="sec-14">
+            <h2>14. Governing Law and Jurisdiction</h2>
+            <p>
+              These Terms are governed by the laws of India. Subject to Section 13 (Dispute Resolution) and the Grievance Redressal Policy, courts at <strong>Chittoor, Andhra Pradesh, India</strong> shall have exclusive jurisdiction over any disputes not resolved through arbitration or that fall within the exceptions in Section 13.3.
+            </p>
+          </section>
+
+          <!-- 15. CHANGES TO THESE TERMS -->
+          <section class="doc-section" id="sec-15">
+            <h2>15. Changes to These Terms</h2>
+            <p>
+              We may revise these Terms from time to time. Continued use of the Service after an update constitutes acceptance of the revised Terms. The current version is always available at <code>wrindhaos.in/terms</code>.
+            </p>
+          </section>
+
+          <!-- 16. CONTACT -->
+          <section class="doc-section" id="sec-16">
+            <h2>16. Contact</h2>
+            <p>
+              Questions about these Terms should be directed to:
+            </p>
+            <div class="highlight-box">
+              <div style="font-weight:700; color:var(--primary); margin-bottom:4px;">WrindhaOS Legal &amp; Compliance</div>
+              <div>Email: <a href="mailto:wrindhaos@gmail.com" style="font-weight:700; text-decoration:underline;">wrindhaos@gmail.com</a></div>
+              <div style="font-size:0.88rem; color:var(--muted); margin-top:4px;">Chittoor, Andhra Pradesh, India</div>
+            </div>
+          </section>
+
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2026 WrindhaOS. Developed in Chittoor, AP, India. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="quiz.html">Self Assessment</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="subscription.html">Subscription</a>
+        <a href="refund.html">Refunds</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

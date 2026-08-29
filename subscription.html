@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="WrindhaOS Subscription Policy covering Free vs Premium plans, Google Play Billing, renewals, plan changes, downgrade preservation, and taxes.">
+  <title>Subscription Policy | WrindhaOS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/jpeg" href="Images/Image1.jpeg" />
+
+  <style>
+    :root {
+      --primary: #082F49;
+      --secondary: #0EA5E9;
+      --paper: #F8FAFC;
+      --card: #FFFFFF;
+      --accent: #E2E8F0;
+      --ink: #0F172A;
+      --muted: #64748B;
+      --success: #10B981;
+      --mint: #E0F2FE;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--ink);
+      background-color: var(--paper);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    /* ================= NAVBAR ================= */
+    .site-header {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--accent);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.03em;
+      color: var(--primary);
+    }
+
+    .brand-logo-img {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #FFFFFF;
+    }
+
+    .btn-primary:hover {
+      background: #0c4a6e;
+      transform: translateY(-1px);
+    }
+
+    /* ================= MAIN LAYOUT ================= */
+    main {
+      flex: 1;
+      padding: 48px 0 80px;
+    }
+
+    .policy-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* ================= STICKY SIDEBAR ================= */
+    .policy-toc {
+      position: sticky;
+      top: 100px;
+      background: #FFFFFF;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      box-shadow: 0 4px 16px rgba(8, 47, 73, 0.03);
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+    }
+
+    .toc-title {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--secondary);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .toc-list a {
+      font-size: 0.86rem;
+      color: #475569;
+      padding: 6px 10px;
+      border-radius: 6px;
+      display: block;
+      transition: all 0.15s ease;
+      line-height: 1.4;
+    }
+
+    .toc-list a:hover {
+      background: #F0F9FF;
+      color: #0284C7;
+      font-weight: 600;
+    }
+
+    /* ================= DOCUMENT BODY ================= */
+    .doc-article {
+      background: #FFFFFF;
+      border: 1px solid var(--accent);
+      border-radius: 20px;
+      padding: 48px 52px;
+      box-shadow: 0 10px 30px rgba(8, 47, 73, 0.04);
+    }
+
+    .doc-hero {
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 32px;
+      margin-bottom: 36px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--secondary);
+      background: #F0F9FF;
+      padding: 4px 12px;
+      border-radius: 99px;
+      border: 1px solid #BAE6FD;
+      margin-bottom: 14px;
+    }
+
+    .doc-hero h1 {
+      font-size: clamp(2rem, 3.2vw, 2.7rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.2;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+
+    .doc-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 24px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .doc-meta span strong {
+      color: var(--ink);
+    }
+
+    /* PLAN CARDS GRID */
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin: 20px 0 24px;
+    }
+
+    .plan-box {
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      background: #F8FAFC;
+    }
+
+    .plan-box.premium {
+      background: #082F49;
+      color: #FFFFFF;
+      border-color: #0369A1;
+    }
+
+    .plan-box h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+
+    .plan-box.premium h3 {
+      color: #38BDF8;
+    }
+
+    .plan-box p {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: #334155;
+      margin-bottom: 0;
+    }
+
+    .plan-box.premium p {
+      color: #CBD5E1;
+    }
+
+    /* SECTIONS */
+    .doc-section {
+      margin-bottom: 40px;
+      scroll-margin-top: 100px;
+    }
+
+    .doc-section h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .doc-section p {
+      font-size: 0.98rem;
+      color: #334155;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .doc-section ul {
+      margin: 10px 0 16px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .doc-section li {
+      font-size: 0.95rem;
+      color: #334155;
+      line-height: 1.6;
+    }
+
+    .doc-section li strong {
+      color: var(--primary);
+    }
+
+    .callout-box {
+      background: #F0F9FF;
+      border: 1px solid #BAE6FD;
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
+      margin: 16px 0;
+      font-size: 0.94rem;
+      color: #0369A1;
+    }
+
+    .highlight-card {
+      background: #F0F9FF;
+      border: 1px solid #BAE6FD;
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      margin: 18px 0;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: #FFFFFF;
+      border-top: 1px solid var(--accent);
+      padding: 24px 0;
+      font-size: 0.88rem;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 960px) {
+      .policy-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .policy-toc {
+        position: static;
+        max-height: none;
+      }
+      .plans-grid {
+        grid-template-columns: 1fr;
+      }
+      .doc-article {
+        padding: 32px 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-inner {
+        flex-direction: column;
+        height: auto;
+        padding: 14px 0;
+        gap: 12px;
+      }
+      .nav-links {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="WrindhaOS Home">
+        <img src="Images/Image1.jpeg" alt="WrindhaOS Logo" class="brand-logo-img" />
+        <span>WrindhaOS</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="quiz.html">Self Assessment</a>
+        <a href="contact.html">Contact</a>
+        <a href="subscription.html" class="active">Subscription Policy</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="container">
+      <div class="policy-layout">
+
+        <!-- STICKY SIDEBAR -->
+        <aside class="policy-toc" aria-label="Table of Contents">
+          <div class="toc-title">
+            <span>📑</span> Policy Sections
+          </div>
+          <nav class="toc-list">
+            <a href="#sec-1">1. Plans</a>
+            <a href="#sec-2">2. How Billing Works</a>
+            <a href="#sec-3">3. Auto-Renewal</a>
+            <a href="#sec-4">4. Managing Your Plan</a>
+            <a href="#sec-5">5. Downgrades &amp; Cancellations</a>
+            <a href="#sec-6">6. Failed Payments</a>
+            <a href="#sec-7">7. Price Changes</a>
+            <a href="#sec-8">8. Refunds</a>
+            <a href="#sec-9">9. Taxes</a>
+            <a href="#sec-10">10. Contact</a>
+          </nav>
+        </aside>
+
+        <!-- DOCUMENT CONTENT -->
+        <article class="doc-article">
+
+          <!-- HERO -->
+          <div class="doc-hero">
+            <div class="eyebrow">Billing &amp; Plan Structure</div>
+            <h1>WrindhaOS Subscription Policy</h1>
+            <div class="doc-meta">
+              <span>Billing Gateway: <strong>Google Play Billing</strong></span>
+              <span>Contact: <strong>wrindhaos@gmail.com</strong></span>
+            </div>
+          </div>
+
+          <!-- 1. PLANS -->
+          <section class="doc-section" id="sec-1">
+            <h2>1. Plans &amp; Features</h2>
+            <p>WrindhaOS currently offers two plans tailored for individuals, students, and ambitious professionals:</p>
+
+            <div class="plans-grid">
+              <div class="plan-box">
+                <h3>Free Tier</h3>
+                <p style="margin-bottom:12px;"><strong>₹0 / month</strong> — Essential daily productivity starter pack:</p>
+                <ul style="margin:0 0 0 18px; font-size:0.88rem; color:#475569; display:flex; flex-direction:column; gap:6px;">
+                  <li><strong>2 Habits:</strong> Active habit streak tracking</li>
+                  <li><strong>2 Subjects:</strong> Academic syllabus &amp; unit manager</li>
+                  <li><strong>Interactive Calendar:</strong> Timetables &amp; daily schedule</li>
+                  <li><strong>To-Do List:</strong> Daily task management</li>
+                  <li>Core Daily Dashboard &amp; offline local storage</li>
+                </ul>
+              </div>
+
+              <div class="plan-box premium">
+                <h3>Premium (Monthly or Yearly)</h3>
+                <p style="margin-bottom:12px; color:#E0F2FE;"><strong>₹49 / month</strong> — The complete, unlimited personal OS:</p>
+                <ul style="margin:0 0 0 18px; font-size:0.88rem; color:#E2E8F0; display:flex; flex-direction:column; gap:6px;">
+                  <li><strong>Everything Unlimited:</strong> Unlimited habits, subjects, &amp; tasks</li>
+                  <li><strong>Career Roadmap:</strong> Milestones &amp; professional skill paths</li>
+                  <li><strong>Expense Tracker:</strong> Financial awareness &amp; budgets</li>
+                  <li><strong>Private Journal:</strong> Encrypted reflections &amp; mood logs</li>
+                  <li><strong>Priority Matrix:</strong> Eisenhower 4-quadrant system</li>
+                  <li><strong>Full Study Tools:</strong> Pomodoro focus centre &amp; unit logs</li>
+                  <li><strong>Deep Analytics:</strong> Growth charts &amp; performance metrics</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- 2. HOW BILLING WORKS -->
+          <section class="doc-section" id="sec-2">
+            <h2>2. How Billing Works</h2>
+            <p>
+              Premium subscriptions are sold and billed exclusively through <strong>Google Play Billing</strong>, using the payment method on file with your Google Play / Google Payments account.
+            </p>
+            <p>
+              We receive subscription status, plan, purchase token, and renewal information from Google Play to activate your Premium features — <strong>we do not receive or store your card or bank details</strong>.
+            </p>
+          </section>
+
+          <!-- 3. AUTO-RENEWAL -->
+          <section class="doc-section" id="sec-3">
+            <h2>3. Auto-Renewal</h2>
+            <p>
+              Subscriptions renew automatically at the end of each billing period (monthly or yearly, as selected) unless cancelled before the renewal date. You will be charged through your Google Play account at the then-current price unless you cancel.
+            </p>
+          </section>
+
+          <!-- 4. MANAGING YOUR SUBSCRIPTION -->
+          <section class="doc-section" id="sec-4">
+            <h2>4. Managing Your Subscription</h2>
+            <p>
+              You can view, upgrade, downgrade, or cancel your subscription at any time via Google Play:
+            </p>
+            <ul>
+              <li><strong>Play Store app:</strong> Menu → Subscriptions</li>
+              <li><strong>Web browser:</strong> <a href="https://play.google.com/store/account/subscriptions" target="_blank" rel="noopener noreferrer" style="color:var(--secondary); font-weight:700; text-decoration:underline;">play.google.com/store/account/subscriptions</a></li>
+              <li><strong>In-app:</strong> The in-app subscription screen links directly to Google Play's subscription management interface.</li>
+            </ul>
+          </section>
+
+          <!-- 5. WHAT HAPPENS WHEN YOU DOWNGRADE OR CANCEL -->
+          <section class="doc-section" id="sec-5">
+            <h2>5. What Happens When You Downgrade or Cancel</h2>
+            <ul>
+              <li>Your Premium access continues until the end of the period you already paid for.</li>
+              <li>After that, your account reverts to the Free plan.</li>
+              <li>If your Free-tier usage exceeds Free-plan limits (e.g., more active habits/subjects than the Free cap allows), existing items are preserved but you may be unable to add new items until you either remove some or resubscribe.</li>
+              <li><strong>Your data (journal, habits, goals, etc.) is not deleted when you downgrade</strong> — only Premium feature access changes.</li>
+            </ul>
+          </section>
+
+          <!-- 6. FAILED PAYMENTS -->
+          <section class="doc-section" id="sec-6">
+            <h2>6. Failed Payments</h2>
+            <p>
+              If a renewal payment fails, Google Play will retry according to its own retry schedule. If payment ultimately cannot be collected, your subscription will be marked accordingly and your account will revert to the Free plan at the end of the grace period Google Play provides.
+            </p>
+          </section>
+
+          <!-- 7. PRICE CHANGES -->
+          <section class="doc-section" id="sec-7">
+            <h2>7. Price Changes</h2>
+            <p>
+              We may change subscription pricing from time to time. Existing subscribers will be given advance notice as required by Google Play policy before a price change takes effect on their next renewal, and may cancel before the new price applies.
+            </p>
+          </section>
+
+          <!-- 8. REFUNDS -->
+          <section class="doc-section" id="sec-8">
+            <h2>8. Refunds</h2>
+            <p>
+              Refund requests are handled per our <a href="refund.html" style="color:var(--secondary); font-weight:700; text-decoration:underline;">Refund &amp; Cancellation Policy</a> and are ultimately subject to Google Play's refund process.
+            </p>
+          </section>
+
+          <!-- 9. TAXES -->
+          <section class="doc-section" id="sec-9">
+            <h2>9. Taxes</h2>
+            <p>
+              Displayed subscription prices are inclusive/exclusive of applicable taxes as shown at checkout in Google Play, which handles tax calculation and remittance for digital subscriptions per its own merchant-of-record arrangements where applicable.
+            </p>
+          </section>
+
+          <!-- 10. CONTACT -->
+          <section class="doc-section" id="sec-10">
+            <h2>10. Contact</h2>
+            <p>
+              Questions about your subscription:
+            </p>
+            <div class="highlight-card">
+              <div>Email: <a href="mailto:wrindhaos@gmail.com" style="color:var(--secondary); font-weight:700; text-decoration:underline;">wrindhaos@gmail.com</a></div>
+              <div style="color:var(--muted); font-size:0.88rem; margin-top:4px;">WrindhaOS Billing Team • Chittoor, Andhra Pradesh, India</div>
+            </div>
+          </section>
+
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2026 WrindhaOS. Developed in Chittoor, AP, India. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="quiz.html">Self Assessment</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="subscription.html">Subscription</a>
+        <a href="refund.html">Refunds</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

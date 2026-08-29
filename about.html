@@ -1,0 +1,831 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="WrindhaOS is a productivity and study-management application built for students preparing for competitive examinations such as NEET, JEE, and UPSC.">
+  <title>About Us | WrindhaOS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/jpeg" href="Images/Image1.jpeg" />
+
+  <style>
+    :root {
+      --primary: #082F49;
+      --secondary: #0EA5E9;
+      --paper: #F8FAFC;
+      --card: #FFFFFF;
+      --accent: #E2E8F0;
+      --ink: #0F172A;
+      --muted: #64748B;
+      --success: #10B981;
+      --mint: #E0F2FE;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      min-height: 100vh;
+      color: var(--ink);
+      background-color: var(--paper);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1140px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    /* ================= NAVBAR ================= */
+    .site-header {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+      box-shadow: 0 2px 14px -2px rgba(8, 47, 73, 0.06);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.03em;
+      color: var(--primary);
+    }
+
+    .brand-logo-img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      object-fit: contain;
+      display: block;
+      box-shadow: 0 2px 6px rgba(8, 47, 73, 0.1);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #FFFFFF;
+    }
+
+    .btn-primary:hover {
+      background: #0c4a6e;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: #FFFFFF;
+      color: var(--primary);
+      border: 1px solid var(--accent);
+    }
+
+    .btn-secondary:hover {
+      background: #F1F5F9;
+      border-color: var(--secondary);
+    }
+
+    /* ================= MAIN CONTENT ================= */
+    main {
+      flex: 1;
+      padding: 48px 0 64px;
+    }
+
+    /* HERO INTRO */
+    .about-hero {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto 48px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--secondary);
+      background: #F0F9FF;
+      padding: 6px 16px;
+      border-radius: 99px;
+      border: 1px solid #BAE6FD;
+      margin-bottom: 18px;
+    }
+
+    .about-hero h1 {
+      font-size: clamp(2.2rem, 3.8vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.2;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .about-hero p.lead {
+      font-size: 1.12rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* CARDS SECTION */
+    .about-sections-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .about-card {
+      background: #FFFFFF;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 36px 40px;
+      box-shadow: 0 4px 20px rgba(8, 47, 73, 0.03);
+      transition: all 0.2s ease;
+    }
+
+    .about-card:hover {
+      border-color: #CBD5E1;
+      box-shadow: 0 8px 30px rgba(8, 47, 73, 0.06);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .section-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #F0F9FF;
+      color: #0284C7;
+      border: 1px solid #BAE6FD;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .section-header h2 {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.025em;
+    }
+
+    .about-card p {
+      font-size: 1.02rem;
+      color: #334155;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .about-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* WHAT WE DO - FEATURE LIST */
+    .feature-points-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .feature-point-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: #F8FAFC;
+      border: 1px solid var(--accent);
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      font-size: 0.98rem;
+      color: var(--ink);
+      line-height: 1.55;
+    }
+
+    .feature-point-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #E0F2FE;
+      color: #0369A1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* STORY SECTIONS */
+    .story-card {
+      background: #FFFFFF;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 44px 48px;
+      box-shadow: 0 4px 20px rgba(8, 47, 73, 0.03);
+      position: relative;
+    }
+
+    .story-card.founder-card {
+      border-left: 4px solid var(--secondary);
+      background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+    }
+
+    .story-card.team-card {
+      border-left: 4px solid var(--primary);
+      background: linear-gradient(180deg, #FFFFFF 0%, #F0F9FF 100%);
+    }
+
+    .story-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--secondary);
+      background: #F0F9FF;
+      padding: 4px 12px;
+      border-radius: 99px;
+      border: 1px solid #BAE6FD;
+      margin-bottom: 12px;
+    }
+
+    .story-badge.team-badge {
+      color: var(--primary);
+      background: #E2E8F0;
+      border-color: #CBD5E1;
+    }
+
+    .story-quote-highlight {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.5;
+      padding: 18px 24px;
+      background: #FFFFFF;
+      border: 1px solid #BAE6FD;
+      border-radius: var(--radius-md);
+      margin: 22px 0;
+      box-shadow: 0 2px 10px rgba(8, 47, 73, 0.02);
+    }
+
+    .story-team-highlight {
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.5;
+      padding: 18px 24px;
+      background: #FFFFFF;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-md);
+      margin: 22px 0;
+    }
+
+    .signature-block {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .signature-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+      border: 2px solid #BAE6FD;
+    }
+
+    .signature-info h4 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 2px;
+    }
+
+    .signature-info p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 0 !important;
+    }
+
+    .mission-footer-box {
+      margin-top: 28px;
+      padding: 18px 22px;
+      background: #082F49;
+      color: #FFFFFF;
+      border-radius: var(--radius-md);
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: -0.01em;
+    }
+
+    .privacy-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .privacy-link-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #0284C7;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .privacy-link-badge:hover {
+      color: var(--primary);
+    }
+
+    /* CONTACT & LOCATION CARD */
+    .contact-card-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .contact-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .location-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: #F1F5F9;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: #FFFFFF;
+      border-top: 1px solid var(--accent);
+      padding: 24px 0;
+      font-size: 0.88rem;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 768px) {
+      .header-inner {
+        flex-direction: column;
+        height: auto;
+        padding: 14px 0;
+        gap: 12px;
+      }
+      .nav-links {
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .nav-links a {
+        padding: 6px 10px;
+        font-size: 0.88rem;
+      }
+      .about-card {
+        padding: 24px 18px;
+      }
+      .story-quote-highlight,
+      .story-team-highlight {
+        padding: 14px 16px;
+        font-size: 1.05rem;
+      }
+      .contact-card-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      .contact-actions {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .contact-actions .btn,
+      .contact-actions .location-badge {
+        width: 100%;
+        justify-content: center;
+      }
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .about-hero h1 {
+        font-size: 1.9rem;
+      }
+      .about-hero p.lead {
+        font-size: 1rem;
+      }
+      .section-header h2 {
+        font-size: 1.35rem;
+      }
+      .signature-block {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="WrindhaOS Home">
+        <img src="Images/Image1.jpeg" alt="WrindhaOS Logo" class="brand-logo-img" />
+        <span>WrindhaOS</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About Us</a>
+        <a href="quiz.html">Self Assessment</a>
+        <a href="contact.html">Contact</a>
+        <a href="join.html" class="btn btn-primary" style="padding:8px 18px; font-size:0.86rem;">Join Waitlist</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="container">
+      
+      <!-- HERO -->
+      <div class="about-hero">
+        <div class="eyebrow">
+          <span>✨</span> Passionate Discipline • Built in Andhra Pradesh, India
+        </div>
+        <h1>About WrindhaOS</h1>
+        <p class="lead">
+          A unified, distraction-free productivity and study-management workspace engineered for competitive exam aspirants and high-performing individuals.
+        </p>
+      </div>
+
+      <div class="about-sections-wrapper">
+
+        <!-- FOUNDER'S STORY -->
+        <article class="story-card founder-card" id="founders-story">
+          <div class="story-badge">Founder's Story</div>
+          <h2 style="font-size:clamp(1.7rem, 2.6vw, 2.1rem); font-weight:800; color:var(--primary); letter-spacing:-0.03em; margin-bottom:20px;">
+            Why I Built WrindhaOS
+          </h2>
+
+          <p>
+            I didn't start WrindhaOS because I wanted to build just another productivity app.
+          </p>
+          <p>
+            I started it because I realized something about my own life.
+          </p>
+          <p>
+            There were countless tools available for taking notes, managing tasks, tracking habits, planning goals, and improving productivity. But my life was still scattered.
+          </p>
+          <p>
+            My tasks were in one app. My goals were somewhere else. My habits were tracked separately. Planning required another tool. And despite having access to so many productivity apps, I often felt like I was managing the tools instead of actually managing my life.
+          </p>
+
+          <div class="story-quote-highlight">
+            "Why should managing your life require switching between multiple apps?"
+          </div>
+
+          <p>
+            I wanted one system.
+          </p>
+          <p>
+            A place where someone could understand their priorities, plan their day, build better habits, focus deeply, track progress, and move towards meaningful goals—all from one connected ecosystem.
+          </p>
+          <p>
+            That idea became <strong>WrindhaOS</strong>.
+          </p>
+          <p>
+            WrindhaOS isn't built around the idea of doing more. It's built around the idea of <strong>doing what truly matters</strong>.
+          </p>
+          <p>
+            I believe productivity isn't about filling every hour of your day. It's about having clarity. Knowing what deserves your attention. Building systems that help you stay consistent. And understanding that progress looks different for everyone.
+          </p>
+          <p>
+            We're still at the beginning of this journey. But the vision is bigger than building another app.
+          </p>
+          <p>
+            I want WrindhaOS to become a personal operating system—a space that helps students, aspirants, creators, and ambitious individuals organize not just their tasks, but their direction.
+          </p>
+
+          <div class="story-quote-highlight" style="border-color:var(--secondary); background:#F0F9FF;">
+            "Because sometimes, you don't need more motivation.<br><span style="color:var(--secondary);">You just need a better system.</span>"
+          </div>
+
+          <p>
+            And that's why I'm building WrindhaOS.
+          </p>
+
+          <div class="signature-block">
+            <div class="signature-avatar">KG</div>
+            <div class="signature-info">
+              <h4>Kalyan Gongidi</h4>
+              <p>Founder, WrindhaOS</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- TEAM'S STORY -->
+        <article class="story-card team-card" id="team-story">
+          <div class="story-badge team-badge">Team's Story</div>
+          <h2 style="font-size:clamp(1.7rem, 2.6vw, 2.1rem); font-weight:800; color:var(--primary); letter-spacing:-0.03em; margin-bottom:20px;">
+            Built by People Who Believe There’s a Better Way
+          </h2>
+
+          <p>
+            WrindhaOS didn't begin with a large company, a big office, or a huge team.
+          </p>
+          <p>
+            It began with a simple idea—and a group of passionate people who believed that managing life shouldn't feel complicated.
+          </p>
+          <p>
+            We come from different skills, perspectives, and backgrounds, but we're connected by one shared belief:
+          </p>
+
+          <div class="story-team-highlight">
+            Technology should help people gain clarity, not create more complexity.
+          </div>
+
+          <p>
+            As students and young builders ourselves, we understood the struggle of balancing goals, responsibilities, habits, deadlines, and ambitions. We experienced firsthand how fragmented life can become when everything is scattered across different apps and systems.
+          </p>
+          <p>
+            So instead of waiting for the perfect solution, we decided to build one.
+          </p>
+          <p>
+            Together, we're building WrindhaOS—not just as another productivity app, but as a system designed to help people organize their ambitions, focus on what matters, and move forward with clarity.
+          </p>
+          <p>
+            We're a small team with a big vision.
+          </p>
+          <p>
+            Every feature, design decision, line of code, piece of content, and idea comes from a shared mission: to build something genuinely useful for people trying to become better versions of themselves.
+          </p>
+          <p>
+            This is only the beginning. We're learning, building, experimenting, making mistakes, and improving every day.
+          </p>
+          <p>
+            But one thing remains constant:
+          </p>
+
+          <div class="story-team-highlight" style="background:#F0FDF4; border-color:#BBF7D0; color:#166534;">
+            We believe that when people have clarity, structure, and the right system, they can achieve far more than they imagine.
+          </div>
+
+          <p>
+            And that's the journey we're building together.
+          </p>
+
+          <div class="mission-footer-box">
+            This isn't just our product. It's our mission.
+          </div>
+        </article>
+
+        <!-- 1. WHO WE ARE -->
+        <section class="about-card" id="who-we-are">
+          <div class="section-header">
+            <div class="section-icon">🎓</div>
+            <h2>Who We Are</h2>
+          </div>
+          <p>
+            WrindhaOS is a productivity and study-management application built for students preparing for competitive examinations such as <strong>NEET, JEE, and UPSC</strong>. WrindhaOS is developed and operated by the <strong>WrindhaOS team</strong> — a group of passionate BTech students based in <strong>Chittoor, Andhra Pradesh, India</strong>.
+          </p>
+          <p>
+            WrindhaOS was created to give passionate people and exam aspirants a single workspace for the discipline that competitive preparation demands — <strong>habit tracking, subject and topic mastery tracking, a goals hierarchy, an Eisenhower-style priority matrix, a calendar and timetable, a private journal, a focus/study timer, and lightweight personal expense tracking</strong> — instead of juggling five different apps.
+          </p>
+        </section>
+
+        <!-- 2. WHAT WE DO -->
+        <section class="about-card" id="what-we-do">
+          <div class="section-header">
+            <div class="section-icon">🚀</div>
+            <h2>What We Do</h2>
+          </div>
+          <p>
+            We empower competitive aspirants and disciplined learners with dedicated daily execution systems:
+          </p>
+
+          <ul class="feature-points-list">
+            <li class="feature-point-item">
+              <div class="feature-point-icon">✓</div>
+              <div><strong>Structured Scheduling:</strong> Help students plan and structure daily, weekly, and long-term study schedules.</div>
+            </li>
+            <li class="feature-point-item">
+              <div class="feature-point-icon">✓</div>
+              <div><strong>Mastery & Habit Tracking:</strong> Track habits, study sessions, and subject/topic mastery over time.</div>
+            </li>
+            <li class="feature-point-item">
+              <div class="feature-point-icon">✓</div>
+              <div><strong>Encrypted Private Journal:</strong> Provide a private, encrypted journal for reflection and mental well-being check-ins.</div>
+            </li>
+            <li class="feature-point-item">
+              <div class="feature-point-icon">✓</div>
+              <div><strong>Goal Hierarchy & Roadmap:</strong> Offer a career roadmap and goal-hierarchy view to connect daily effort to long-term outcomes.</div>
+            </li>
+            <li class="feature-point-item">
+              <div class="feature-point-icon">✓</div>
+              <div><strong>Study-Life Finance:</strong> Provide light personal finance tracking (expenses and monthly budgets) as a study-life management tool.</div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- 3. OUR APPROACH TO PRIVACY -->
+        <section class="about-card" id="privacy-approach">
+          <div class="section-header">
+            <div class="section-icon">🔒</div>
+            <h2>Our Approach to Privacy</h2>
+          </div>
+          <p>
+            WrindhaOS is built on an <strong>"owner-only" data architecture</strong>: your personal data — including your journal, habits, goals, subjects, tasks, and calendar — is protected by database-level access rules that restrict access to your own account.
+          </p>
+          <p>
+            Our own administrators do not have standing access to read your private content; access is limited to account, subscription, and aggregate usage metadata needed to operate the service.
+          </p>
+          
+          <div class="privacy-highlight-box">
+            <strong>Need more details on how we safeguard your information?</strong>
+            <div class="privacy-links">
+              <a href="privacy.html" class="privacy-link-badge">→ View Privacy Policy</a>
+              <a href="data.html" class="privacy-link-badge">→ Security & Data Protection Statement</a>
+              <a href="terms.html" class="privacy-link-badge">→ Terms of Service</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. CONTACT -->
+        <section class="about-card" id="contact-info">
+          <div class="section-header">
+            <div class="section-icon">📬</div>
+            <h2>Contact</h2>
+          </div>
+          
+          <div class="contact-card-inner">
+            <div>
+              <p>
+                For general enquiries, please see our Contact Us page or write to us directly at:
+              </p>
+              <div style="font-size:1.15rem; font-weight:700; color:var(--primary); margin:8px 0 16px;">
+                ✉️ <a href="mailto:wrindhaos@gmail.com" style="color:var(--secondary); text-decoration:underline;">wrindhaos@gmail.com</a>
+              </div>
+              <div class="location-badge">
+                📍 Chittoor, Andhra Pradesh, India
+              </div>
+            </div>
+
+            <div class="contact-actions">
+              <a href="contact.html" class="btn btn-primary">Go to Contact Us Page →</a>
+              <a href="quiz.html" class="btn btn-secondary">Take Self Assessment</a>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2026 WrindhaOS. Developed by WrindhaOS team in Chittoor, AP, India. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="quiz.html">Self Assessment</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="data.html">Data Protection</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

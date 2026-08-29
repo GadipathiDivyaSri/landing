@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Join the waitlist for WrindhaOS — build a system for your study, habits, goals, and daily life.">
+  <title>Join the Waitlist | WrindhaOS</title>
+  <style>
+    :root {
+      --primary: #082F49;
+      --secondary: #0EA5E9;
+      --bg: #F0F9FF;
+      --card: #FFFFFF;
+      --accent: #CBD5E1;
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+      --success: #10B981;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--text-main);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+    }
+    body:before {
+      content: "";
+      position: fixed;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: rgba(14, 165, 233, 0.12);
+      filter: blur(70px);
+      top: -140px;
+      right: -80px;
+      pointer-events: none;
+    }
+    .container {
+      width: min(100% - 32px, 600px);
+      margin: 48px auto 64px;
+      position: relative;
+    }
+    .header {
+      color: white;
+      padding: 38px 42px;
+      border-radius: 24px 24px 0 0;
+      background: linear-gradient(115deg, var(--primary), #0c4a6e 58%, var(--secondary));
+      box-shadow: 0 18px 38px rgba(8, 47, 73, 0.2);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .header:after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border: 28px solid rgba(255, 255, 255, 0.12);
+      border-radius: 50%;
+      right: -45px;
+      top: -100px;
+    }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: .75rem;
+      font-weight: 800;
+      opacity: .9;
+      margin: 0 0 10px;
+      color: #BAE6FD;
+    }
+    h1 {
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      margin: 0 0 8px;
+      letter-spacing: -.03em;
+    }
+    .header p {
+      margin: 0;
+      opacity: .92;
+      font-size: 1.05rem;
+    }
+    form {
+      background: var(--card);
+      padding: 34px 42px 42px;
+      border-radius: 0 0 24px 24px;
+      box-shadow: 0 24px 65px rgba(8, 47, 73, 0.08);
+      border: 1px solid var(--accent);
+      border-top: none;
+    }
+    .section {
+      padding: 0 0 10px;
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin: 0 0 20px;
+      letter-spacing: -.02em;
+      color: var(--primary);
+    }
+    h2:before {
+      content: "";
+      display: inline-block;
+      width: 5px;
+      height: 20px;
+      border-radius: 4px;
+      background: var(--secondary);
+      margin-right: 10px;
+      vertical-align: -2px;
+    }
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 18px 0;
+    }
+    label {
+      color: var(--text-main);
+      font-size: .9rem;
+      font-weight: 600;
+    }
+    label span {
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+    input[type=text], input[type=email], input[type=tel] {
+      border: 1px solid var(--accent);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 16px; /* Prevents auto-zoom on iOS */
+      font-family: inherit;
+      color: var(--text-main);
+      outline: none;
+      transition: .2s;
+      background: #f8fafc;
+      width: 100%;
+    }
+    input[type=text]:focus, input[type=email]:focus, input[type=tel]:focus {
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.18);
+      background: #fff;
+    }
+    button {
+      display: block;
+      width: 100%;
+      min-height: 48px;
+      border: 0;
+      border-radius: 12px;
+      padding: 16px;
+      color: #fff;
+      background: linear-gradient(100deg, var(--primary), var(--secondary));
+      font: 700 1.05rem inherit;
+      cursor: pointer;
+      box-shadow: 0 10px 18px rgba(8, 47, 73, 0.2);
+      transition: .2s;
+      margin-top: 24px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    button:hover, button:active {
+      transform: translateY(-2px);
+      background: linear-gradient(100deg, #0c4a6e, #0284c7);
+      box-shadow: 0 12px 22px rgba(14, 165, 233, 0.35);
+    }
+    #formMessage {
+      margin-top: 18px;
+      font-size: 0.95rem;
+      text-align: center;
+      color: var(--success);
+      font-weight: 600;
+    }
+    .back-home {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      width: 100%;
+      text-align: center;
+      margin-top: 20px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .back-home:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+    @media (max-width:650px) {
+      .container { width: min(100% - 20px, 600px); margin: 16px auto 32px; }
+      .header, form { padding: 28px 18px; }
+      .header h1 { font-size: 1.85rem; }
+      .header p { font-size: 0.98rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <p class="eyebrow">WrindhaOS • Early Access</p>
+      <h1>Join the Waitlist</h1>
+      <p>Be the first to build a system for your daily progress</p>
+    </div>
+
+    <form id="waitlist">
+      <div class="section">
+        <h2>Your Information</h2>
+
+        <div class="input-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="input-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="Enter your email address" required>
+        </div>
+
+        <div class="input-group">
+          <label for="phone">Phone Number <span>(Optional)</span></label>
+          <input type="tel" id="phone" placeholder="Enter your phone number">
+        </div>
+        
+        <button type="submit" id="submitBtn">Join the waitlist</button>
+
+        <div id="formMessage"></div>
+        <a href="index.html" class="back-home">← Back to WrindhaOS Home</a>
+      </div>
+    </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL = "";
+    const SUPABASE_KEY = "";
+
+    let supabaseClient = null;
+    try {
+      if (SUPABASE_URL && SUPABASE_KEY && window.supabase && typeof window.supabase.createClient === "function") {
+        supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+      }
+    } catch (err) {
+      console.warn("Supabase initialization skipped:", err);
+    }
+
+    const form = document.getElementById("waitlist");
+    const submitBtn = document.getElementById("submitBtn");
+    const formMessage = document.getElementById("formMessage");
+
+    if (form && submitBtn && formMessage) {
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name") ? document.getElementById("name").value.trim() : "";
+        const email = document.getElementById("email") ? document.getElementById("email").value.trim() : "";
+        const phone = document.getElementById("phone") ? document.getElementById("phone").value.trim() : "";
+
+        // Basic validation
+        if (!name || !email) {
+          formMessage.style.color = "var(--secondary)";
+          formMessage.textContent = "Please fill in all required fields (Name and Email).";
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Submitting...";
+
+        try {
+          if (supabaseClient) {
+            const { error } = await supabaseClient
+              .from("join_details")
+              .insert({
+                name: name,
+                email: email,
+                phone: phone || null
+              });
+
+            if (error) {
+              throw error;
+            }
+          } else {
+            // Local persistence fallback
+            const existing = JSON.parse(localStorage.getItem("wrindha_waitlist") || "[]");
+            existing.push({
+              name,
+              email,
+              phone: phone || null,
+              submittedAt: new Date().toISOString()
+            });
+            localStorage.setItem("wrindha_waitlist", JSON.stringify(existing));
+          }
+
+          // Success feedback
+          formMessage.style.color = "var(--success)";
+          formMessage.textContent = "🎉 Thank you! Your details have been submitted for early access.";
+          form.reset();
+        } catch (error) {
+          console.error("Submission error:", error);
+          formMessage.style.color = "#EF4444";
+          formMessage.textContent = "Something went wrong. Please try again or reach out to wrindhaos@gmail.com";
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Join the waitlist";
+        }
+      });
+    }
+  </script>

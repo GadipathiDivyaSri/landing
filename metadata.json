@@ -1,0 +1,6 @@
+{
+  "name": "WrindhaOS",
+  "description": "Plan your studies, manage goals, build habits, focus better and organize your life with WrindhaOS.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
