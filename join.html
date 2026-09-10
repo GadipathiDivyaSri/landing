@@ -229,18 +229,6 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-    const SUPABASE_URL = "";
-    const SUPABASE_KEY = "";
-
-    let supabaseClient = null;
-    try {
-      if (SUPABASE_URL && SUPABASE_KEY && window.supabase && typeof window.supabase.createClient === "function") {
-        supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-      }
-    } catch (err) {
-      console.warn("Supabase initialization skipped:", err);
-    }
-
     const form = document.getElementById("waitlist");
     const submitBtn = document.getElementById("submitBtn");
     const formMessage = document.getElementById("formMessage");
@@ -262,31 +250,41 @@
 
         submitBtn.disabled = true;
         submitBtn.textContent = "Submitting...";
+        formMessage.textContent = "";
 
         try {
-          if (supabaseClient) {
-            const { error } = await supabaseClient
-              .from("join_details")
-              .insert({
-                name: name,
-                email: email,
-                phone: phone || null
-              });
+          let submitted = false;
 
-            if (error) {
-              throw error;
-            }
-          } else {
-            // Local persistence fallback
-            const existing = JSON.parse(localStorage.getItem("wrindha_waitlist") || "[]");
-            existing.push({
-              name,
-              email,
-              phone: phone || null,
-              submittedAt: new Date().toISOString()
+          // 1. Primary path: Secure full-stack backend endpoint (/api/waitlist)
+          try {
+            const response = await fetch("/api/waitlist", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ name, email, phone }),
             });
-            localStorage.setItem("wrindha_waitlist", JSON.stringify(existing));
+
+            if (response.ok) {
+              const result = await response.json();
+              submitted = true;
+            } else {
+              const errData = await response.json().catch(() => ({}));
+              console.warn("Server API returned error:", errData);
+            }
+          } catch (netErr) {
+            console.warn("Backend API unavailable, attempting client fallback:", netErr);
           }
+
+          // 2. Local persistence fallback for offline or static hosting
+          const existing = JSON.parse(localStorage.getItem("wrindha_waitlist") || "[]");
+          existing.push({
+            name,
+            email,
+            phone: phone || null,
+            submittedAt: new Date().toISOString()
+          });
+          localStorage.setItem("wrindha_waitlist", JSON.stringify(existing));
 
           // Success feedback
           formMessage.style.color = "var(--success)";

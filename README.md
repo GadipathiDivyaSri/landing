@@ -79,6 +79,45 @@ All HTML, CSS, and JS assets are self-contained and can be served directly from 
 
 ---
 
+## 🗄️ Supabase Database Integration
+
+WrindhaOS includes native full-stack Supabase integration for early-access waitlist submissions with automatic server-side validation and graceful fallback.
+
+### Database Table Schema (`join_details`)
+
+Run the following SQL query in your [Supabase SQL Editor](https://supabase.com/dashboard/project/_/sql):
+
+```sql
+create table if not exists join_details (
+  id uuid primary key default gen_random_uuid(),
+  name text not null,
+  email text not null,
+  phone text,
+  created_at timestamp with time zone default timezone('utc'::text, now())
+);
+
+-- Enable Row Level Security (RLS)
+alter table join_details enable row level security;
+
+-- Allow anonymous submissions for the waitlist
+create policy "Allow waitlist inserts" 
+  on join_details 
+  for insert 
+  with check (true);
+```
+
+### Environment Configuration
+
+Configure the environment variables in `.env` (refer to `.env.example`):
+
+```env
+SUPABASE_URL=https://your-project-id.supabase.co
+SUPABASE_ANON_KEY=your-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+```
+
+---
+
 ## 🛡️ Privacy & Security
 
 - Zero third-party ad networks or data broker integrations.
